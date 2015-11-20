@@ -1,0 +1,411 @@
+/*
+        Z80 Emulator GUI
+
+        Copyright (C) 2008 Justin Clancy
+*/
+
+#include <gtk/gtk.h>
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+#include "interface.h"
+#include "support.h"
+#include "sim.h"
+#include "simglb.h"
+
+#define ARROW "\xe2\x96\xba"
+#define FLAG "\xe2\x9a\x90"
+#define PC_CHAR	'>'
+#define BP_CHAR '@'
+#define BREAK_OP 0x76
+#define K64K (64 * 1024)
+#define BACKUP_LINES 20
+
+#define CODE_BUFFER_LINE_LENGTH 48
+#define CODE_BUILD_BUFFER_SIZE (K64K * CODE_BUFFER_LINE_LENGTH)
+
+static GtkTextBuffer *code_textbuffer;
+static GtkTextTag *fonttag, *redtag, *greentag, *bluetag, *boldtag;
+static gint code_sel_row;
+static unsigned int Selected_Code_Addr;
+static gboolean Code_Selected;
+static BYTE *Start_Code_List;
+static unsigned int coderow[K64K];
+static GtkWidget *codetext;
+
+
+
+void dump_code_vars()
+{
+  int i;
+
+  logprint("+++ CODE +++\n", NULL);
+  logprint("code_sel_row=%d, Selected_Code_Addr=%04X, Code_Selected=%d\n",
+         code_sel_row, Selected_Code_Addr, Code_Selected);
+  logprint("ram=%04X, SP=%04X, PC=%04X, Start_Code_List=%04X\n",
+	ram, (unsigned int)(STACK - ram), (unsigned int)(PC - ram),
+	(Start_Code_List - ram));
+  do_break("\n");
+/*  logprint("Coderow table\n", NULL); */
+/*  for (i = 0; i < 10; i++) */
+/*    logprint("addr=%04X row=%d\n", i, coderow[i]); */
+  logprint("--- CODE ---\n", NULL);
+}
+
+
+  /* Make a matrix of addresses against rows in the (absolute) */
+  /* code window. Obviously this makes debugging self modifying */
+  /* code impossible. This will be used to backtrack the code window */
+  /* so that the code of interest is in the centre (more or less) */
+
+void build_code_cache(void)
+{
+  int i, row;
+  BYTE *p, *oldp;
+  char *total_code;
+
+  total_code = malloc(CODE_BUILD_BUFFER_SIZE);
+
+printf("Building code cache. total_code_size=%d\n", CODE_BUILD_BUFFER_SIZE / 1024);
+  row = 0;
+  p = ram;
+  while (p < (ram + K64K))			/* scan entire Z80 mem space */
+  {
+    sprintf(tstr, "  %04X:\t", p - ram);	/* set address */
+    strcat(total_code, tstr);
+
+    oldp = p;					/* get the start point */
+    disass(&p, p - ram);			/* get the operation length */
+
+    for (i = 0; i < (int)(p - oldp); i++)	/* set all addrs to this row */
+    {
+      coderow[(oldp - ram) + i] = row;
+    }
+
+    row++;					/* next row */
+
+    if (show_opcodes)
+    {
+      strcat(total_code, Opcode_Str);		/* yes - add it */
+      strcat(total_code, "   ");		/* and a separator */
+    }
+
+    strcat(total_code, Disass_Str);		/* add the disas string */
+  }
+  gtk_text_buffer_set_text(			/* show buffer in the win */
+	code_textbuffer, total_code, -1);
+
+  format_code_text(code_textbuffer);		/* set to uniform font */
+  do_code_highlights();
+
+  free(total_code);
+printf("Code cache build completed.\n");
+}
+
+
+void set_PC_to_selection(void)
+{
+  if (!Code_Selected)
+  {
+    show_error("Unable to set PC to selected address - no code selected.\n");
+    return;
+  }
+
+  PC = Selected_Code_Addr + ram;
+
+  Show_Registers();
+  Dump_From_Register(Dump_Reg);
+  Show_Code();
+}
+
+
+/* Take a code address and return the row in code_textbuffer to which it */
+/* refers. If not found returns -1. */
+
+int addr_to_row(unsigned int addr)
+{
+  GtkTextIter start, match;
+  gchar text[8];
+  gboolean found;
+
+  /* Get the text of the address */
+
+  sprintf(text, "%04X:", addr);
+
+  /* search for this string in the code buffer */
+
+  gtk_text_buffer_get_start_iter(code_textbuffer, &start);
+  found = gtk_text_iter_forward_search (&start, text, 0, &match, NULL, NULL);
+
+  /* If found return the line (row) of the iter */
+
+  if (found)
+    return(gtk_text_iter_get_line(&match));
+  else
+  {
+/* DEBUG    printf("addr_to_row: ERROR - %s not matched.\n", text); */
+    return(-1);
+  }
+}
+
+
+/* Remove a tag from the code window */
+/* if row is -1 does the whole buffer */
+/* otherwise just that row */
+
+void darken_code(int row, GtkTextTag *tag)
+{
+  GtkTextIter start, end;
+
+  if (row == -1)
+  {
+    gtk_text_buffer_get_start_iter(code_textbuffer, &start);
+    gtk_text_buffer_get_end_iter(code_textbuffer, &end);
+  }
+  else
+  {
+    gtk_text_buffer_get_iter_at_line(code_textbuffer, &start, row);
+    end = start;
+    gtk_text_iter_forward_to_line_end(&end);
+  }
+
+  gtk_text_buffer_remove_tag(code_textbuffer, tag, &start, &end);
+}
+
+
+/* Apply a tag to a row in the code window */
+
+void highlight_code(int row, GtkTextTag *hightag)
+{
+  GtkTextIter start, end;
+
+  gtk_text_buffer_get_iter_at_line(code_textbuffer, &start, row);
+  end = start;
+  gtk_text_iter_forward_to_line_end(&end);
+  gtk_text_buffer_apply_tag(code_textbuffer, hightag, &start, &end);
+}
+
+
+/* Invoked when the code window is clicked */
+/* Primarily used to set the "instructed selected" point. */
+/* Clumsy because I don't know why there are several invocations */
+/* for one click */
+
+void Code_clicked(void)
+{
+  gint newrow;
+  GtkTextIter iter, start, end;
+  char addr[8];
+
+  gtk_text_buffer_get_iter_at_mark(code_textbuffer,
+     &iter, gtk_text_buffer_get_insert(code_textbuffer));
+
+  newrow = gtk_text_iter_get_line(&iter);
+
+  /* Need to check that we don't have a spurious callback */
+
+  if (newrow != code_sel_row || Code_Selected == FALSE)
+  {
+    code_sel_row = newrow;			/* OK - not spurious */
+    gtk_text_buffer_get_iter_at_line(
+	code_textbuffer, &start, code_sel_row);
+    gtk_text_iter_forward_chars(&start, 2);	/* jump to start of addr */
+    end = start;
+    gtk_text_iter_forward_chars(&end, 4);	/* move to address end */
+    strcpy(addr, gtk_text_buffer_get_text(	/* ..get the address */
+		code_textbuffer,
+		&start, &end, TRUE)
+          );
+    Selected_Code_Addr = exatoi(addr + 1);
+    Code_Selected = TRUE;
+    darken_code(-1, redtag);			/* remove all old tag */
+    do_code_highlights();
+  }
+}
+
+
+/* Change the font of the Code window */
+/* Would be better if we could set this permanently */
+
+void format_code_text(GtkTextBuffer *buffer)
+{
+  GtkTextIter start, end;
+
+  gtk_text_buffer_get_start_iter(code_textbuffer, &start);
+  gtk_text_buffer_get_end_iter(code_textbuffer, &end);
+
+  gtk_text_buffer_apply_tag(code_textbuffer, fonttag, &start, &end);
+}
+
+
+/* highlight PC, breakpoints and selection in the code window */
+
+void do_code_highlights(void)
+{
+  int i, row;
+  GtkTextIter aniter;
+
+  /* highlight all breakpoints */
+
+  for (i = 0; i < SBSIZE; i++)
+  {
+    if (soft[i].sb_pass)			/* BP here? */
+    {
+      row = coderow[soft[i].sb_adr];	/* get row from address */
+      if (row != -1)				/* visible? */
+        highlight_code(row, bluetag);		/* yes - highlight it */
+    }
+  }
+
+  /* highlight the next code to be executed */
+
+  row = coderow[PC - ram];			/* highlight next opcode */
+  if (row != -1)				/* ..if in view */
+  {
+    darken_code(-1, greentag);		/* ..& green */
+    highlight_code(row, greentag);
+/* printf("PC @ row %d\n", row); */
+    gtk_text_buffer_get_iter_at_line(code_textbuffer, &aniter, row); 
+    gtk_text_view_scroll_to_iter(GTK_TEXT_VIEW(codetext), &aniter, 0, FALSE, 0, 0); 
+  }
+  else
+    logprint("Code row not visible (%d)\n", row);
+
+  /* highlight any selected code */
+
+  if (Code_Selected == TRUE)
+  {
+    row = coderow[Selected_Code_Addr];	/* highlight selection */
+    if (row != -1)				/* ..if in view */
+    {
+      darken_code(row, bluetag);		/* remove blue */
+      darken_code(row, greentag);		/* ..& green */
+      highlight_code(row, redtag);
+    }
+    else
+      Code_Selected = FALSE;
+  }
+}
+
+
+/* General code display: */
+/* 'start' is the start address */
+/* 'length' is the number of rows to display */
+
+void Show_Code(void)
+{
+  do_code_highlights();
+}
+
+
+
+/* Set a breakpoint at the selected code */
+
+void Code_Break(void)
+{
+  int retcode;
+  int i, row;
+
+  if (!Code_Selected)
+  {
+    show_error("Unable to set break point - no code selected.\n");
+    return;
+  }
+
+  for (i = 0; i < SBSIZE; i++)			/* check BPs */
+    if (soft[i].sb_pass == 0)			/* available? */
+      break;
+  if (i == SBSIZE)
+  {
+    sprintf(tstr, "No breakpoints available.\n(Max %d)\n",
+	SBSIZE);
+    show_error(tstr);
+    return;
+  }
+
+  soft[i].sb_adr = Selected_Code_Addr;		/* save addr */
+  soft[i].sb_oldopc = 
+	*(Selected_Code_Addr + ram);		/* ..and opcode */	
+  *(Selected_Code_Addr + ram) = BREAK_OP;	/* set the BP */
+  soft[i].sb_pass = 1;				/* activate the BP */
+  soft[i].sb_passcount = 0;
+
+  row = coderow[Selected_Code_Addr];	/* highlight the new BP */
+  if (row != -1)			
+  {
+    Code_Selected = FALSE;
+    Show_Code();
+  }
+  else
+    logprint("Impossible! 0x%04X is not visible!\n", Selected_Code_Addr);
+}
+
+
+/* Clear a breakpoint at the selected code */
+/* DEBUG: change logic here to same as setting BPs */
+
+void Code_UnBreak(void)
+{
+  int bpc, i;
+
+  if (!Code_Selected)
+  {
+    show_error("Unable to clear break point - no code selected.\n");
+    return;
+  }
+
+  bpc = -1;					/* no bp */
+  for (i = 0; i < SBSIZE; i++)
+    if (soft[i].sb_adr == Selected_Code_Addr)	/* search for BP adr */
+      bpc = i;
+
+  if (bpc != -1)				/* found it ? */
+  {
+    *(ram + Selected_Code_Addr) =
+	 soft[bpc].sb_oldopc;			/* restore opcode */
+    soft[bpc].sb_adr = (WORD)0;			/* clear BP entry */
+    soft[bpc].sb_pass = 0;
+    Code_Selected = FALSE;			/* clear selection */
+    Show_Code();
+  }
+  else
+    show_error("Selected code is not a breakpoint.\n");
+}
+
+
+/* Set up the globals for the code frame: */
+/* code_textbuffer, the various tags and set up a signal */
+/* for when the code window is clicked */
+
+void init_Code(GtkWidget *Main)
+{
+  GtkWidget *widget;
+  BYTE *p, *oldp;
+  unsigned int row;
+  int i;
+
+  codetext = lookup_widget(Main, "Code_Text");
+
+  code_textbuffer = gtk_text_view_get_buffer(GTK_TEXT_VIEW(codetext));
+
+  fonttag = gtk_text_buffer_create_tag(code_textbuffer, "font",
+	"font", "Monospace", NULL);
+  redtag = gtk_text_buffer_create_tag(code_textbuffer, "redtag", 
+	"foreground", "red", NULL); 
+  greentag = gtk_text_buffer_create_tag(code_textbuffer, "greentag", 
+	"foreground", "green", NULL); 
+  bluetag = gtk_text_buffer_create_tag(code_textbuffer, "bluetag", 
+	"foreground", "blue", NULL); 
+  boldtag = gtk_text_buffer_create_tag(code_textbuffer, "boldtag", 
+	"weight", PANGO_WEIGHT_BOLD, NULL); 
+
+  widget = lookup_widget(Main, "OpcodeButton");
+  gtk_toggle_tool_button_set_active(GTK_TOGGLE_TOOL_BUTTON(widget), FALSE);
+
+  g_signal_connect(code_textbuffer, "mark_set", Code_clicked, NULL);
+
+  Start_Code_List = PC;
+  Code_Selected = FALSE;
+  build_code_cache();
+}

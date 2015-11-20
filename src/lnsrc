@@ -1,0 +1,16 @@
+# use this to link the common parts of Z80 simulation
+SRC_DIR=../Z80/z80pack-1.17/z80sim
+
+ln -s $SRC_DIR/sim0.c .
+ln -s $SRC_DIR/sim1.c .
+ln -s $SRC_DIR/sim2.c .
+ln -s $SRC_DIR/sim3.c .
+ln -s $SRC_DIR/sim4.c .
+ln -s $SRC_DIR/sim5.c .
+ln -s $SRC_DIR/sim6.c .
+ln -s $SRC_DIR/sim7.c .
+ln -s $SRC_DIR/simfun.c .
+ln -s $SRC_DIR/simint.c .
+ln -s $SRC_DIR/simglb.c .
+ln -s $SRC_DIR/simglb.h .
+ln -s $SRC_DIR/disas.c .

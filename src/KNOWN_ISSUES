@@ -1,0 +1,64 @@
+TODO: If IOWIN is not displayed and an input is required put up an alert to say that
+      the user should bring up the IOWIN.
+
+URGENT: Show_Code is called even when running at full speed.
+	Also full speed does not allow user to stop run.
+
+* IO window should scroll to bottom of new data.
+* I/O window wrap around is broken - it should act like dmesg.
+* Any IN instruction causes a hang.
+* Breakpoints only for one pass - needs a separate window for control.
+* Code naming conventions are wrong/inconsistent.
+  (suggestion: use capitalised function names for GUI functions)
+* Scope of variables is inconsistent (and WAY too many globals).
+* Must add a DEBUG flag to compilation.
+* Window behaviour inconsistent (eg close button not propagated properly) eg IOPort & Log
+* File selection can return a directory
+* No monospace font on registers.
+* Breakpoints should occur *before* the trapped instruction is executed.
+* Code and Memory windows should resize with main window.
+* Code and Memory windows should derive their length (not use constants such as CODE_WINDOW_SIZE). (Fixed for code window).
+* Memory window needs to be updated like Code window (ie not fully every time).
+* Carefully check whether ints need to be gint, long int or unsigned int.
+* Presentation of flags is difficult to read (not aligned).
+* Must accept CLI arguments.
+* Port window should scroll to end.
+* Does restart button reset PC to the correct offset?
+* Need to include hints on buttons (partially done).
+* Must have a queue for various input ports which can be expressed in ASCII and binary (poss: 0x for binary, ' for ASCII?)
+
+Done: Alternate register labels should be right justified.
+DONE: Non-zero origin of binary causes crash (ie ORG 0200H).
+DONE: Need prototypes to avoid forward references.
+DONE: Must use ifdefs to select between GUI code and pure code.
+DONE: Slightly iffy behaviour of log window scrolling. Actually it's rubbish.
+DONE: AF' display does not include flags.
+DONE: Break points set round robin (overwriting earlier ones).
+DONE: Zero Regs does not clear F' (anything else?)
+DONE: When loading a new binary the code window does not reset (anything else?)
+DONE: When loading a new binary all breakpoints etc should be reset.
+DONE: Operations to certain I/O ports cause crash.
+
+OBSOLETE: breakpoint arrow should only appear on last known BP (bold?)
+OUTSIDE CONTROL: Inconsistencies between scope of certain virtual registers (eg. PC and SP).
+
+Extensions
+
+* Monitor all memory references for watchpoints and setting parts of the
+address space as ROM.
+
+* Need preferences window. Should include:
+	run slow delay (NOTE: may have main window solution)
+	number of breakpoints?
+	highlight colours? (involves changing tag names in code)
+	number of disass lines
+	number of memory lines
+
+* Save and restore machine state. Inc things like preferences and whether
+machine code is displayed.
+
+* Ability to browse code independent of PC.
+
+Compiler Worries
+
+NONE. Must run with -Wall

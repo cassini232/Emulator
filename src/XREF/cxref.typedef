@@ -1,0 +1,6 @@
+sim.h WORD unsigned short WORD
+sim.h BYTE unsigned char BYTE
+sim.h # struct history
+sim.h # struct softbreak
+guiglb.h IOPortStruct struct IOPortStruct IOPortStruct
+disas.c # struct opt

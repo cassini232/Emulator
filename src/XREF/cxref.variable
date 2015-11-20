@@ -1,0 +1,1253 @@
+support.c pixmaps_directories 1 add_pixmap_directory %find_pixmap_file
+simint.c A 8
+simint.c B 8
+simint.c C 8
+simint.c D 8
+simint.c E 8
+simint.c H 8
+simint.c L 8
+simint.c A_ 8
+simint.c B_ 8
+simint.c C_ 8
+simint.c D_ 8
+simint.c E_ 8
+simint.c H_ 8
+simint.c L_ 8
+simint.c PC 8
+simint.c STACK 8
+simint.c I 8
+simint.c IFF 8
+simint.c IX 8
+simint.c IY 8
+simint.c F 8
+simint.c F_ 8
+simint.c R 8
+simint.c mem_wp 8
+simint.c ram 8
+simint.c wrk_ram 8
+simint.c cpu_state 8 %quit_int %user_int
+simint.c s_flag 8
+simint.c l_flag 8
+simint.c m_flag 8
+simint.c x_flag 8
+simint.c break_flag 8
+simint.c i_flag 8
+simint.c f_flag 8
+simint.c cpu_error 8 %quit_int %user_int
+simint.c int_type 8
+simint.c int_mode 8
+simint.c cntl_c 8
+simint.c cntl_bs 8
+simint.c parrity 8
+simint.c sb_next 8
+simint.c tmax 8
+simint.c busy_loop_cnt 8
+simint.c xfn 8
+simint.c his 8
+simint.c h_next 8
+simint.c h_flag 8
+simint.c soft 8
+simint.c t_states 8
+simint.c t_flag 8
+simint.c t_start 8
+simint.c t_end 8
+simint.c old_term 4 %term_int
+simglb.c A 2
+simglb.c B 2
+simglb.c C 2
+simglb.c D 2
+simglb.c E 2
+simglb.c H 2
+simglb.c L 2
+simglb.c F 2
+simglb.c IX 2
+simglb.c IY 2
+simglb.c A_ 2
+simglb.c B_ 2
+simglb.c C_ 2
+simglb.c D_ 2
+simglb.c E_ 2
+simglb.c H_ 2
+simglb.c L_ 2
+simglb.c F_ 2
+simglb.c PC 2
+simglb.c STACK 2
+simglb.c I 2
+simglb.c IFF 2
+simglb.c R 2
+simglb.c mem_wp 2
+simglb.c ram 2 $
+simglb.c wrk_ram 2
+simglb.c his 2
+simglb.c h_next 2
+simglb.c h_flag 2
+simglb.c soft 2
+simglb.c sb_next 2
+simglb.c t_states 2
+simglb.c t_flag 2
+simglb.c t_start 2
+simglb.c t_end 2
+simglb.c s_flag 2
+simglb.c l_flag 2
+simglb.c m_flag 2
+simglb.c x_flag 2
+simglb.c i_flag 2
+simglb.c f_flag 2
+simglb.c xfn 2
+simglb.c cpu_state 2
+simglb.c cpu_error 2
+simglb.c int_type 2
+simglb.c tmax 2
+simglb.c int_mode 2
+simglb.c cntl_c 2
+simglb.c cntl_bs 2
+simglb.c busy_loop_cnt 2
+simglb.c parrity 2
+simctl.c A 8 %do_reg %print_reg
+simctl.c B 8 %do_reg %print_reg
+simctl.c C 8 %do_reg %print_reg
+simctl.c D 8 %do_reg %print_reg
+simctl.c E 8 %do_reg %print_reg
+simctl.c H 8 %do_reg %print_reg
+simctl.c L 8 %do_reg %print_reg
+simctl.c A_ 8 %do_reg %print_reg
+simctl.c B_ 8 %do_reg %print_reg
+simctl.c C_ 8 %do_reg %print_reg
+simctl.c D_ 8 %do_reg %print_reg
+simctl.c E_ 8 %do_reg %print_reg
+simctl.c H_ 8 %do_reg %print_reg
+simctl.c L_ 8 %do_reg %print_reg
+simctl.c PC 8 %cpu_err_msg %do_clock %do_reg do_step %handel_break %load_hex %load_mos %print_reg
+simctl.c STACK 8 %do_reg %print_reg
+simctl.c I 8 %do_reg %print_reg
+simctl.c IFF 8 %print_reg
+simctl.c IX 8 %do_reg %print_reg
+simctl.c IY 8 %do_reg %print_reg
+simctl.c F 8 %do_reg %print_reg
+simctl.c F_ 8 %do_reg %print_reg
+simctl.c R 8 %do_clock
+simctl.c mem_wp 8
+simctl.c ram 8 %cpu_err_msg do_break %do_clock %do_count %do_dump %do_fill do_getfile %do_list %do_modify %do_move %do_reg do_step %handel_break %load_hex %load_mos %print_reg
+simctl.c wrk_ram 8 %do_dump do_getfile %do_list %do_modify %load_mos
+simctl.c cpu_state 8 %do_clock do_go do_step do_trace %handel_break %timeout
+simctl.c s_flag 8
+simctl.c l_flag 8
+simctl.c m_flag 8
+simctl.c x_flag 8 mon
+simctl.c break_flag 8
+simctl.c i_flag 8
+simctl.c f_flag 8
+simctl.c cpu_error 8 %cpu_err_msg %do_clock do_go do_step do_trace %handel_break
+simctl.c int_type 8
+simctl.c int_mode 8
+simctl.c cntl_c 8
+simctl.c cntl_bs 8
+simctl.c parrity 8
+simctl.c sb_next 8 do_break
+simctl.c tmax 8
+simctl.c busy_loop_cnt 8
+simctl.c xfn 8 mon
+simctl.c his 8 %do_hist
+simctl.c h_next 8 %do_hist %handel_break
+simctl.c h_flag 8 %do_hist
+simctl.c soft 8 do_break %handel_break
+simctl.c t_states 8 %do_count
+simctl.c t_flag 8 %do_count
+simctl.c t_start 8 %do_count
+simctl.c t_end 8 %do_count
+simctl.c Disass_Str 8
+simctl.c Opcode_Str 8
+simctl.c show_opcodes 8
+simctl.c run_slow 8
+simctl.c run_slow_pref 8
+simctl.c tstr 8
+simctl.c lstr 8 %cpu_err_msg %handel_break %load_mos
+simctl.c Dump_Reg 8
+simctl.c IOPort 8
+simctl.c current_port 8
+simctl.c old_term 2 mon
+sim7.c A 8
+sim7.c B 8
+sim7.c C 8
+sim7.c D 8
+sim7.c E 8
+sim7.c H 8
+sim7.c L 8
+sim7.c A_ 8
+sim7.c B_ 8
+sim7.c C_ 8
+sim7.c D_ 8
+sim7.c E_ 8
+sim7.c H_ 8
+sim7.c L_ 8
+sim7.c PC 8 op_fdcb_handel
+sim7.c STACK 8
+sim7.c I 8
+sim7.c IFF 8
+sim7.c IX 8
+sim7.c IY 8 %op_rb0iyd %op_rb1iyd %op_rb2iyd %op_rb3iyd %op_rb4iyd %op_rb5iyd %op_rb6iyd %op_rb7iyd %op_rlciyd %op_rliyd %op_rrciyd %op_rriyd %op_sb0iyd %op_sb1iyd %op_sb2iyd %op_sb3iyd %op_sb4iyd %op_sb5iyd %op_sb6iyd %op_sb7iyd %op_slaiyd %op_sraiyd %op_srliyd %op_tb0iyd %op_tb1iyd %op_tb2iyd %op_tb3iyd %op_tb4iyd %op_tb5iyd %op_tb6iyd %op_tb7iyd
+sim7.c F 8 %op_rlciyd %op_rliyd %op_rrciyd %op_rriyd %op_slaiyd %op_sraiyd %op_srliyd %op_tb0iyd %op_tb1iyd %op_tb2iyd %op_tb3iyd %op_tb4iyd %op_tb5iyd %op_tb6iyd %op_tb7iyd
+sim7.c F_ 8
+sim7.c R 8
+sim7.c mem_wp 8
+sim7.c ram 8 op_fdcb_handel %op_rb0iyd %op_rb1iyd %op_rb2iyd %op_rb3iyd %op_rb4iyd %op_rb5iyd %op_rb6iyd %op_rb7iyd %op_rlciyd %op_rliyd %op_rrciyd %op_rriyd %op_sb0iyd %op_sb1iyd %op_sb2iyd %op_sb3iyd %op_sb4iyd %op_sb5iyd %op_sb6iyd %op_sb7iyd %op_slaiyd %op_sraiyd %op_srliyd %op_tb0iyd %op_tb1iyd %op_tb2iyd %op_tb3iyd %op_tb4iyd %op_tb5iyd %op_tb6iyd %op_tb7iyd
+sim7.c wrk_ram 8
+sim7.c cpu_state 8 %trap_fdcb
+sim7.c s_flag 8
+sim7.c l_flag 8
+sim7.c m_flag 8
+sim7.c x_flag 8
+sim7.c break_flag 8
+sim7.c i_flag 8
+sim7.c f_flag 8
+sim7.c cpu_error 8 %trap_fdcb
+sim7.c int_type 8
+sim7.c int_mode 8
+sim7.c cntl_c 8
+sim7.c cntl_bs 8
+sim7.c parrity 8 %op_rlciyd %op_rliyd %op_rrciyd %op_rriyd %op_slaiyd %op_sraiyd %op_srliyd
+sim7.c sb_next 8
+sim7.c tmax 8
+sim7.c busy_loop_cnt 8
+sim7.c xfn 8
+sim7.c his 8
+sim7.c h_next 8
+sim7.c h_flag 8
+sim7.c soft 8
+sim7.c t_states 8
+sim7.c t_flag 8
+sim7.c t_start 8
+sim7.c t_end 8
+sim6.c A 8
+sim6.c B 8
+sim6.c C 8
+sim6.c D 8
+sim6.c E 8
+sim6.c H 8
+sim6.c L 8
+sim6.c A_ 8
+sim6.c B_ 8
+sim6.c C_ 8
+sim6.c D_ 8
+sim6.c E_ 8
+sim6.c H_ 8
+sim6.c L_ 8
+sim6.c PC 8 op_ddcb_handel
+sim6.c STACK 8
+sim6.c I 8
+sim6.c IFF 8
+sim6.c IX 8 %op_rb0ixd %op_rb1ixd %op_rb2ixd %op_rb3ixd %op_rb4ixd %op_rb5ixd %op_rb6ixd %op_rb7ixd %op_rlcixd %op_rlixd %op_rrcixd %op_rrixd %op_sb0ixd %op_sb1ixd %op_sb2ixd %op_sb3ixd %op_sb4ixd %op_sb5ixd %op_sb6ixd %op_sb7ixd %op_slaixd %op_sraixd %op_srlixd %op_tb0ixd %op_tb1ixd %op_tb2ixd %op_tb3ixd %op_tb4ixd %op_tb5ixd %op_tb6ixd %op_tb7ixd
+sim6.c IY 8
+sim6.c F 8 %op_rlcixd %op_rlixd %op_rrcixd %op_rrixd %op_slaixd %op_sraixd %op_srlixd %op_tb0ixd %op_tb1ixd %op_tb2ixd %op_tb3ixd %op_tb4ixd %op_tb5ixd %op_tb6ixd %op_tb7ixd
+sim6.c F_ 8
+sim6.c R 8
+sim6.c mem_wp 8
+sim6.c ram 8 op_ddcb_handel %op_rb0ixd %op_rb1ixd %op_rb2ixd %op_rb3ixd %op_rb4ixd %op_rb5ixd %op_rb6ixd %op_rb7ixd %op_rlcixd %op_rlixd %op_rrcixd %op_rrixd %op_sb0ixd %op_sb1ixd %op_sb2ixd %op_sb3ixd %op_sb4ixd %op_sb5ixd %op_sb6ixd %op_sb7ixd %op_slaixd %op_sraixd %op_srlixd %op_tb0ixd %op_tb1ixd %op_tb2ixd %op_tb3ixd %op_tb4ixd %op_tb5ixd %op_tb6ixd %op_tb7ixd
+sim6.c wrk_ram 8
+sim6.c cpu_state 8 %trap_ddcb
+sim6.c s_flag 8
+sim6.c l_flag 8
+sim6.c m_flag 8
+sim6.c x_flag 8
+sim6.c break_flag 8
+sim6.c i_flag 8
+sim6.c f_flag 8
+sim6.c cpu_error 8 %trap_ddcb
+sim6.c int_type 8
+sim6.c int_mode 8
+sim6.c cntl_c 8
+sim6.c cntl_bs 8
+sim6.c parrity 8 %op_rlcixd %op_rlixd %op_rrcixd %op_rrixd %op_slaixd %op_sraixd %op_srlixd
+sim6.c sb_next 8
+sim6.c tmax 8
+sim6.c busy_loop_cnt 8
+sim6.c xfn 8
+sim6.c his 8
+sim6.c h_next 8
+sim6.c h_flag 8
+sim6.c soft 8
+sim6.c t_states 8
+sim6.c t_flag 8
+sim6.c t_start 8
+sim6.c t_end 8
+sim5.c A 8 %op_acayd %op_adayd %op_andyd %op_cpyd %op_ldayd %op_ldyda %op_oryd %op_scayd %op_suayd %op_xoryd
+sim5.c B 8 %op_addyb %op_ldbyd %op_ldydb
+sim5.c C 8 %op_addyb %op_ldcyd %op_ldydc
+sim5.c D 8 %op_addyd %op_lddyd %op_ldydd
+sim5.c E 8 %op_addyd %op_ldeyd %op_ldyde
+sim5.c H 8 %op_ldhyd %op_ldydh
+sim5.c L 8 %op_ldlyd %op_ldydl
+sim5.c A_ 8
+sim5.c B_ 8
+sim5.c C_ 8
+sim5.c D_ 8
+sim5.c E_ 8
+sim5.c H_ 8
+sim5.c L_ 8
+sim5.c PC 8 %op_acayd %op_adayd %op_andyd %op_cpyd %op_decyd op_fd_handel %op_incyd %op_jpiy %op_ldayd %op_ldbyd %op_ldcyd %op_lddyd %op_ldeyd %op_ldhyd %op_ldiny %op_ldiyinn %op_ldiynn %op_ldlyd %op_ldyda %op_ldydb %op_ldydc %op_ldydd %op_ldyde %op_ldydh %op_ldydl %op_ldydn %op_oryd %op_scayd %op_suayd %op_xoryd
+sim5.c STACK 8 %op_addys %op_exspy %op_ldspy %op_popiy %op_pusiy
+sim5.c I 8
+sim5.c IFF 8
+sim5.c IX 8
+sim5.c IY 8 %op_acayd %op_adayd %op_addyb %op_addyd %op_addys %op_addyy %op_andyd %op_cpyd %op_deciy %op_decyd %op_exspy %op_inciy %op_incyd %op_jpiy %op_ldayd %op_ldbyd %op_ldcyd %op_lddyd %op_ldeyd %op_ldhyd %op_ldiny %op_ldiyinn %op_ldiynn %op_ldlyd %op_ldspy %op_ldyda %op_ldydb %op_ldydc %op_ldydd %op_ldyde %op_ldydh %op_ldydl %op_ldydn %op_oryd %op_popiy %op_pusiy %op_scayd %op_suayd %op_xoryd
+sim5.c F 8 %op_acayd %op_adayd %op_addyb %op_addyd %op_addys %op_addyy %op_andyd %op_cpyd %op_decyd %op_incyd %op_oryd %op_scayd %op_suayd %op_xoryd
+sim5.c F_ 8
+sim5.c R 8
+sim5.c mem_wp 8
+sim5.c ram 8 %op_acayd %op_adayd %op_addys %op_andyd %op_cpyd %op_decyd op_fd_handel %op_incyd %op_jpiy %op_ldayd %op_ldbyd %op_ldcyd %op_lddyd %op_ldeyd %op_ldhyd %op_ldiny %op_ldiyinn %op_ldlyd %op_ldspy %op_ldyda %op_ldydb %op_ldydc %op_ldydd %op_ldyde %op_ldydh %op_ldydl %op_ldydn %op_oryd %op_popiy %op_pusiy %op_scayd %op_suayd %op_xoryd
+sim5.c wrk_ram 8
+sim5.c cpu_state 8 %trap_fd
+sim5.c s_flag 8
+sim5.c l_flag 8
+sim5.c m_flag 8
+sim5.c x_flag 8
+sim5.c break_flag 8
+sim5.c i_flag 8
+sim5.c f_flag 8
+sim5.c cpu_error 8 %trap_fd
+sim5.c int_type 8
+sim5.c int_mode 8
+sim5.c cntl_c 8
+sim5.c cntl_bs 8
+sim5.c parrity 8 %op_andyd %op_oryd %op_xoryd
+sim5.c sb_next 8
+sim5.c tmax 8
+sim5.c busy_loop_cnt 8
+sim5.c xfn 8
+sim5.c his 8
+sim5.c h_next 8
+sim5.c h_flag 8
+sim5.c soft 8
+sim5.c t_states 8
+sim5.c t_flag 8
+sim5.c t_start 8
+sim5.c t_end 8
+sim4.c A 8 %op_cpdop %op_cpdr %op_cpi %op_cpir %op_inaic %op_ldai %op_ldar %op_ldia %op_ldra %op_neg %op_oprld %op_oprrd %op_outca
+sim4.c B 8 %op_adchb %op_cpdop %op_cpdr %op_cpi %op_cpir %op_inbic %op_ind %op_indr %op_ini %op_inir %op_ldbcinn %op_ldd %op_lddr %op_ldi %op_ldinbc %op_ldir %op_otdr %op_otir %op_outcb %op_outd %op_outi %op_sbchb
+sim4.c C 8 %op_adchb %op_cpdop %op_cpdr %op_cpi %op_cpir %op_inaic %op_inbic %op_incic %op_ind %op_indic %op_indr %op_ineic %op_inhic %op_ini %op_inir %op_inlic %op_ldbcinn %op_ldd %op_lddr %op_ldi %op_ldinbc %op_ldir %op_otdr %op_otir %op_outca %op_outcb %op_outcc %op_outcd %op_outce %op_outch %op_outcl %op_outd %op_outi %op_sbchb
+sim4.c D 8 %op_adchd %op_indic %op_ldd %op_lddeinn %op_lddr %op_ldi %op_ldinde %op_ldir %op_outcd %op_sbchd
+sim4.c E 8 %op_adchd %op_ineic %op_ldd %op_lddeinn %op_lddr %op_ldi %op_ldinde %op_ldir %op_outce %op_sbchd
+sim4.c H 8 %op_adchb %op_adchd %op_adchh %op_adchs %op_cpdop %op_cpdr %op_cpi %op_cpir %op_ind %op_indr %op_inhic %op_ini %op_inir %op_ldd %op_lddr %op_ldi %op_ldir %op_oprld %op_oprrd %op_otdr %op_otir %op_outch %op_outd %op_outi %op_sbchb %op_sbchd %op_sbchh %op_sbchs
+sim4.c L 8 %op_adchb %op_adchd %op_adchh %op_adchs %op_cpdop %op_cpdr %op_cpi %op_cpir %op_ind %op_indr %op_ini %op_inir %op_inlic %op_ldd %op_lddr %op_ldi %op_ldir %op_oprld %op_oprrd %op_otdr %op_otir %op_outcl %op_outd %op_outi %op_sbchb %op_sbchd %op_sbchh %op_sbchs
+sim4.c A_ 8
+sim4.c B_ 8
+sim4.c C_ 8
+sim4.c D_ 8
+sim4.c E_ 8
+sim4.c H_ 8
+sim4.c L_ 8
+sim4.c PC 8 op_ed_handel %op_ldbcinn %op_lddeinn %op_ldinbc %op_ldinde %op_ldinsp %op_ldspinn %op_reti %op_retn
+sim4.c STACK 8 %op_adchs %op_ldinsp %op_ldspinn %op_reti %op_retn %op_sbchs
+sim4.c I 8 %op_ldai %op_ldia
+sim4.c IFF 8 %op_ldai %op_ldar %op_retn
+sim4.c IX 8
+sim4.c IY 8
+sim4.c F 8 %op_adchb %op_adchd %op_adchh %op_adchs %op_cpdop %op_cpdr %op_cpi %op_cpir %op_inaic %op_inbic %op_incic %op_ind %op_indic %op_indr %op_ineic %op_inhic %op_ini %op_inir %op_inlic %op_ldai %op_ldar %op_ldd %op_lddr %op_ldi %op_ldir %op_neg %op_oprld %op_oprrd %op_otdr %op_otir %op_outd %op_outi %op_sbchb %op_sbchd %op_sbchh %op_sbchs
+sim4.c F_ 8
+sim4.c R 8 %op_ldar %op_ldra
+sim4.c mem_wp 8
+sim4.c ram 8 %op_adchs %op_cpdop %op_cpdr %op_cpi %op_cpir op_ed_handel %op_ind %op_indr %op_ini %op_inir %op_ldbcinn %op_ldd %op_lddeinn %op_lddr %op_ldi %op_ldinbc %op_ldinde %op_ldinsp %op_ldir %op_ldspinn %op_oprld %op_oprrd %op_otdr %op_otir %op_outd %op_outi %op_reti %op_retn %op_sbchs
+sim4.c wrk_ram 8
+sim4.c cpu_state 8 %trap_ed
+sim4.c s_flag 8
+sim4.c l_flag 8
+sim4.c m_flag 8
+sim4.c x_flag 8
+sim4.c break_flag 8
+sim4.c i_flag 8
+sim4.c f_flag 8
+sim4.c cpu_error 8 %trap_ed
+sim4.c int_type 8
+sim4.c int_mode 8 %op_im0 %op_im1 %op_im2
+sim4.c cntl_c 8
+sim4.c cntl_bs 8
+sim4.c parrity 8 %op_inaic %op_inbic %op_incic %op_indic %op_ineic %op_inhic %op_inlic %op_oprld %op_oprrd
+sim4.c sb_next 8
+sim4.c tmax 8
+sim4.c busy_loop_cnt 8
+sim4.c xfn 8
+sim4.c his 8
+sim4.c h_next 8
+sim4.c h_flag 8
+sim4.c soft 8
+sim4.c t_states 8
+sim4.c t_flag 8
+sim4.c t_start 8
+sim4.c t_end 8
+sim3.c A 8 %op_acaxd %op_adaxd %op_andxd %op_cpxd %op_ldaxd %op_ldxda %op_orxd %op_scaxd %op_suaxd %op_xorxd
+sim3.c B 8 %op_addxb %op_ldbxd %op_ldxdb
+sim3.c C 8 %op_addxb %op_ldcxd %op_ldxdc
+sim3.c D 8 %op_addxd %op_lddxd %op_ldxdd
+sim3.c E 8 %op_addxd %op_ldexd %op_ldxde
+sim3.c H 8 %op_ldhxd %op_ldxdh
+sim3.c L 8 %op_ldlxd %op_ldxdl
+sim3.c A_ 8
+sim3.c B_ 8
+sim3.c C_ 8
+sim3.c D_ 8
+sim3.c E_ 8
+sim3.c H_ 8
+sim3.c L_ 8
+sim3.c PC 8 %op_acaxd %op_adaxd %op_andxd %op_cpxd op_dd_handel %op_decxd %op_incxd %op_jpix %op_ldaxd %op_ldbxd %op_ldcxd %op_lddxd %op_ldexd %op_ldhxd %op_ldinx %op_ldixinn %op_ldixnn %op_ldlxd %op_ldxda %op_ldxdb %op_ldxdc %op_ldxdd %op_ldxde %op_ldxdh %op_ldxdl %op_ldxdn %op_orxd %op_scaxd %op_suaxd %op_xorxd
+sim3.c STACK 8 %op_addxs %op_exspx %op_ldspx %op_popix %op_pusix
+sim3.c I 8
+sim3.c IFF 8
+sim3.c IX 8 %op_acaxd %op_adaxd %op_addxb %op_addxd %op_addxs %op_addxx %op_andxd %op_cpxd %op_decix %op_decxd %op_exspx %op_incix %op_incxd %op_jpix %op_ldaxd %op_ldbxd %op_ldcxd %op_lddxd %op_ldexd %op_ldhxd %op_ldinx %op_ldixinn %op_ldixnn %op_ldlxd %op_ldspx %op_ldxda %op_ldxdb %op_ldxdc %op_ldxdd %op_ldxde %op_ldxdh %op_ldxdl %op_ldxdn %op_orxd %op_popix %op_pusix %op_scaxd %op_suaxd %op_xorxd
+sim3.c IY 8
+sim3.c F 8 %op_acaxd %op_adaxd %op_addxb %op_addxd %op_addxs %op_addxx %op_andxd %op_cpxd %op_decxd %op_incxd %op_orxd %op_scaxd %op_suaxd %op_xorxd
+sim3.c F_ 8
+sim3.c R 8
+sim3.c mem_wp 8
+sim3.c ram 8 %op_acaxd %op_adaxd %op_addxs %op_andxd %op_cpxd op_dd_handel %op_decxd %op_incxd %op_jpix %op_ldaxd %op_ldbxd %op_ldcxd %op_lddxd %op_ldexd %op_ldhxd %op_ldinx %op_ldixinn %op_ldlxd %op_ldspx %op_ldxda %op_ldxdb %op_ldxdc %op_ldxdd %op_ldxde %op_ldxdh %op_ldxdl %op_ldxdn %op_orxd %op_popix %op_pusix %op_scaxd %op_suaxd %op_xorxd
+sim3.c wrk_ram 8
+sim3.c cpu_state 8 %trap_dd
+sim3.c s_flag 8
+sim3.c l_flag 8
+sim3.c m_flag 8
+sim3.c x_flag 8
+sim3.c break_flag 8
+sim3.c i_flag 8
+sim3.c f_flag 8
+sim3.c cpu_error 8 %trap_dd
+sim3.c int_type 8
+sim3.c int_mode 8
+sim3.c cntl_c 8
+sim3.c cntl_bs 8
+sim3.c parrity 8 %op_andxd %op_orxd %op_xorxd
+sim3.c sb_next 8
+sim3.c tmax 8
+sim3.c busy_loop_cnt 8
+sim3.c xfn 8
+sim3.c his 8
+sim3.c h_next 8
+sim3.c h_flag 8
+sim3.c soft 8
+sim3.c t_states 8
+sim3.c t_flag 8
+sim3.c t_start 8
+sim3.c t_end 8
+sim2.c A 8 %op_rb0a %op_rb1a %op_rb2a %op_rb3a %op_rb4a %op_rb5a %op_rb6a %op_rb7a %op_rlcra %op_rlra %op_rrcra %op_rrra %op_sb0a %op_sb1a %op_sb2a %op_sb3a %op_sb4a %op_sb5a %op_sb6a %op_sb7a %op_slaa %op_sraa %op_srla %op_tb0a %op_tb1a %op_tb2a %op_tb3a %op_tb4a %op_tb5a %op_tb6a %op_tb7a
+sim2.c B 8 %op_rb0b %op_rb1b %op_rb2b %op_rb3b %op_rb4b %op_rb5b %op_rb6b %op_rb7b %op_rlb %op_rlcb %op_rrb %op_rrcb %op_sb0b %op_sb1b %op_sb2b %op_sb3b %op_sb4b %op_sb5b %op_sb6b %op_sb7b %op_slab %op_srab %op_srlb %op_tb0b %op_tb1b %op_tb2b %op_tb3b %op_tb4b %op_tb5b %op_tb6b %op_tb7b
+sim2.c C 8 %op_rb0c %op_rb1c %op_rb2c %op_rb3c %op_rb4c %op_rb5c %op_rb6c %op_rb7c %op_rlc %op_rlcc %op_rrc %op_rrcc %op_sb0c %op_sb1c %op_sb2c %op_sb3c %op_sb4c %op_sb5c %op_sb6c %op_sb7c %op_slac %op_srac %op_srlc %op_tb0c %op_tb1c %op_tb2c %op_tb3c %op_tb4c %op_tb5c %op_tb6c %op_tb7c
+sim2.c D 8 %op_rb0d %op_rb1d %op_rb2d %op_rb3d %op_rb4d %op_rb5d %op_rb6d %op_rb7d %op_rlcd %op_rld %op_rrcd %op_rrd %op_sb0d %op_sb1d %op_sb2d %op_sb3d %op_sb4d %op_sb5d %op_sb6d %op_sb7d %op_slad %op_srad %op_srld %op_tb0d %op_tb1d %op_tb2d %op_tb3d %op_tb4d %op_tb5d %op_tb6d %op_tb7d
+sim2.c E 8 %op_rb0e %op_rb1e %op_rb2e %op_rb3e %op_rb4e %op_rb5e %op_rb6e %op_rb7e %op_rlce %op_rle %op_rrce %op_rre %op_sb0e %op_sb1e %op_sb2e %op_sb3e %op_sb4e %op_sb5e %op_sb6e %op_sb7e %op_slae %op_srae %op_srle %op_tb0e %op_tb1e %op_tb2e %op_tb3e %op_tb4e %op_tb5e %op_tb6e %op_tb7e
+sim2.c H 8 %op_rb0h %op_rb0hl %op_rb1h %op_rb1hl %op_rb2h %op_rb2hl %op_rb3h %op_rb3hl %op_rb4h %op_rb4hl %op_rb5h %op_rb5hl %op_rb6h %op_rb6hl %op_rb7h %op_rb7hl %op_rlch %op_rlchl %op_rlh %op_rlhl %op_rrch %op_rrchl %op_rrh %op_rrhl %op_sb0h %op_sb0hl %op_sb1h %op_sb1hl %op_sb2h %op_sb2hl %op_sb3h %op_sb3hl %op_sb4h %op_sb4hl %op_sb5h %op_sb5hl %op_sb6h %op_sb6hl %op_sb7h %op_sb7hl %op_slah %op_slahl %op_srah %op_srahl %op_srlh %op_srlhl %op_tb0h %op_tb0hl %op_tb1h %op_tb1hl %op_tb2h %op_tb2hl %op_tb3h %op_tb3hl %op_tb4h %op_tb4hl %op_tb5h %op_tb5hl %op_tb6h %op_tb6hl %op_tb7h %op_tb7hl
+sim2.c L 8 %op_rb0hl %op_rb0l %op_rb1hl %op_rb1l %op_rb2hl %op_rb2l %op_rb3hl %op_rb3l %op_rb4hl %op_rb4l %op_rb5hl %op_rb5l %op_rb6hl %op_rb6l %op_rb7hl %op_rb7l %op_rlchl %op_rlcl %op_rlhl %op_rll %op_rrchl %op_rrcl %op_rrhl %op_rrl %op_sb0hl %op_sb0l %op_sb1hl %op_sb1l %op_sb2hl %op_sb2l %op_sb3hl %op_sb3l %op_sb4hl %op_sb4l %op_sb5hl %op_sb5l %op_sb6hl %op_sb6l %op_sb7hl %op_sb7l %op_slahl %op_slal %op_srahl %op_sral %op_srlhl %op_srll %op_tb0hl %op_tb0l %op_tb1hl %op_tb1l %op_tb2hl %op_tb2l %op_tb3hl %op_tb3l %op_tb4hl %op_tb4l %op_tb5hl %op_tb5l %op_tb6hl %op_tb6l %op_tb7hl %op_tb7l
+sim2.c A_ 8
+sim2.c B_ 8
+sim2.c C_ 8
+sim2.c D_ 8
+sim2.c E_ 8
+sim2.c H_ 8
+sim2.c L_ 8
+sim2.c PC 8 op_cb_handel
+sim2.c STACK 8
+sim2.c I 8
+sim2.c IFF 8
+sim2.c IX 8
+sim2.c IY 8
+sim2.c F 8 %op_rlb %op_rlc %op_rlcb %op_rlcc %op_rlcd %op_rlce %op_rlch %op_rlchl %op_rlcl %op_rlcra %op_rld %op_rle %op_rlh %op_rlhl %op_rll %op_rlra %op_rrb %op_rrc %op_rrcb %op_rrcc %op_rrcd %op_rrce %op_rrch %op_rrchl %op_rrcl %op_rrcra %op_rrd %op_rre %op_rrh %op_rrhl %op_rrl %op_rrra %op_slaa %op_slab %op_slac %op_slad %op_slae %op_slah %op_slahl %op_slal %op_sraa %op_srab %op_srac %op_srad %op_srae %op_srah %op_srahl %op_sral %op_srla %op_srlb %op_srlc %op_srld %op_srle %op_srlh %op_srlhl %op_srll %op_tb0a %op_tb0b %op_tb0c %op_tb0d %op_tb0e %op_tb0h %op_tb0hl %op_tb0l %op_tb1a %op_tb1b %op_tb1c %op_tb1d %op_tb1e %op_tb1h %op_tb1hl %op_tb1l %op_tb2a %op_tb2b %op_tb2c %op_tb2d %op_tb2e %op_tb2h %op_tb2hl %op_tb2l %op_tb3a %op_tb3b %op_tb3c %op_tb3d %op_tb3e %op_tb3h %op_tb3hl %op_tb3l %op_tb4a %op_tb4b %op_tb4c %op_tb4d %op_tb4e %op_tb4h %op_tb4hl %op_tb4l %op_tb5a %op_tb5b %op_tb5c %op_tb5d %op_tb5e %op_tb5h %op_tb5hl %op_tb5l %op_tb6a %op_tb6b %op_tb6c %op_tb6d %op_tb6e %op_tb6h %op_tb6hl %op_tb6l %op_tb7a %op_tb7b %op_tb7c %op_tb7d %op_tb7e %op_tb7h %op_tb7hl %op_tb7l
+sim2.c F_ 8
+sim2.c R 8
+sim2.c mem_wp 8
+sim2.c ram 8 op_cb_handel %op_rb0hl %op_rb1hl %op_rb2hl %op_rb3hl %op_rb4hl %op_rb5hl %op_rb6hl %op_rb7hl %op_rlchl %op_rlhl %op_rrchl %op_rrhl %op_sb0hl %op_sb1hl %op_sb2hl %op_sb3hl %op_sb4hl %op_sb5hl %op_sb6hl %op_sb7hl %op_slahl %op_srahl %op_srlhl %op_tb0hl %op_tb1hl %op_tb2hl %op_tb3hl %op_tb4hl %op_tb5hl %op_tb6hl %op_tb7hl
+sim2.c wrk_ram 8
+sim2.c cpu_state 8 %trap_cb
+sim2.c s_flag 8
+sim2.c l_flag 8
+sim2.c m_flag 8
+sim2.c x_flag 8
+sim2.c break_flag 8
+sim2.c i_flag 8
+sim2.c f_flag 8
+sim2.c cpu_error 8 %trap_cb
+sim2.c int_type 8
+sim2.c int_mode 8
+sim2.c cntl_c 8
+sim2.c cntl_bs 8
+sim2.c parrity 8 %op_rlb %op_rlc %op_rlcb %op_rlcc %op_rlcd %op_rlce %op_rlch %op_rlchl %op_rlcl %op_rlcra %op_rld %op_rle %op_rlh %op_rlhl %op_rll %op_rlra %op_rrb %op_rrc %op_rrcb %op_rrcc %op_rrcd %op_rrce %op_rrch %op_rrchl %op_rrcl %op_rrcra %op_rrd %op_rre %op_rrh %op_rrhl %op_rrl %op_rrra %op_slaa %op_slab %op_slac %op_slad %op_slae %op_slah %op_slahl %op_slal %op_sraa %op_srab %op_srac %op_srad %op_srae %op_srah %op_srahl %op_sral %op_srla %op_srlb %op_srlc %op_srld %op_srle %op_srlh %op_srlhl %op_srll
+sim2.c sb_next 8
+sim2.c tmax 8
+sim2.c busy_loop_cnt 8
+sim2.c xfn 8
+sim2.c his 8
+sim2.c h_next 8
+sim2.c h_flag 8
+sim2.c soft 8
+sim2.c t_states 8
+sim2.c t_flag 8
+sim2.c t_start 8
+sim2.c t_end 8
+sim1.c A 8 cpu %op_adca %op_adcb %op_adcc %op_adcd %op_adce %op_adch %op_adchl %op_adcl %op_adcn %op_adda %op_addb %op_addc %op_addd %op_adde %op_addh %op_addhl %op_addl %op_addn %op_anda %op_andb %op_andc %op_andd %op_ande %op_andh %op_andhl %op_andl %op_andn %op_cpb %op_cpc %op_cpd %op_cpe %op_cph %op_cphl %op_cpl %op_cplr %op_cpn %op_daa %op_deca %op_exafaf %op_in %op_inca %op_ldab %op_ldabc %op_ldac %op_ldad %op_ldade %op_ldae %op_ldah %op_ldahl %op_ldal %op_ldan %op_ldann %op_ldba %op_ldbca %op_ldca %op_ldda %op_lddea %op_ldea %op_ldha %op_ldhla %op_ldla %op_ldnna %op_ora %op_orb %op_orc %op_ord %op_ore %op_orh %op_orhl %op_orl %op_orn %op_out %op_popaf %op_pushaf %op_rla %op_rlca %op_rra %op_rrca %op_sbca %op_sbcb %op_sbcc %op_sbcd %op_sbce %op_sbch %op_sbchl %op_sbcl %op_sbcn %op_suba %op_subb %op_subc %op_subd %op_sube %op_subh %op_subhl %op_subl %op_subn %op_xora %op_xorb %op_xorc %op_xord %op_xore %op_xorh %op_xorhl %op_xorl %op_xorn
+sim1.c B 8 cpu %op_adcb %op_addb %op_adhlbc %op_andb %op_cpb %op_decb %op_decbc %op_djnz %op_exx %op_incb %op_incbc %op_ldab %op_ldabc %op_ldba %op_ldbc %op_ldbca %op_ldbcnn %op_ldbd %op_ldbe %op_ldbh %op_ldbhl %op_ldbl %op_ldbn %op_ldcb %op_lddb %op_ldeb %op_ldhb %op_ldhlb %op_ldlb %op_orb %op_popbc %op_pushbc %op_sbcb %op_subb %op_xorb
+sim1.c C 8 cpu %op_adcc %op_addc %op_adhlbc %op_andc %op_cpc %op_decbc %op_decc %op_exx %op_incbc %op_incc %op_ldabc %op_ldac %op_ldbc %op_ldbca %op_ldbcnn %op_ldca %op_ldcb %op_ldcd %op_ldce %op_ldch %op_ldchl %op_ldcl %op_ldcn %op_lddc %op_ldec %op_ldhc %op_ldhlc %op_ldlc %op_orc %op_popbc %op_pushbc %op_sbcc %op_subc %op_xorc
+sim1.c D 8 cpu %op_adcd %op_addd %op_adhlde %op_andd %op_cpd %op_decd %op_decde %op_exdehl %op_exx %op_incd %op_incde %op_ldad %op_ldade %op_ldbd %op_ldcd %op_ldda %op_lddb %op_lddc %op_ldde %op_lddea %op_lddenn %op_lddh %op_lddhl %op_lddl %op_lddn %op_lded %op_ldhd %op_ldhld %op_ldld %op_ord %op_popde %op_pushde %op_sbcd %op_subd %op_xord
+sim1.c E 8 cpu %op_adce %op_adde %op_adhlde %op_ande %op_cpe %op_decde %op_dece %op_exdehl %op_exx %op_incde %op_ince %op_ldade %op_ldae %op_ldbe %op_ldce %op_ldde %op_lddea %op_lddenn %op_ldea %op_ldeb %op_ldec %op_lded %op_ldeh %op_ldehl %op_ldel %op_lden %op_ldhe %op_ldhle %op_ldle %op_ore %op_popde %op_pushde %op_sbce %op_sube %op_xore
+sim1.c H 8 cpu %op_adch %op_adchl %op_addh %op_addhl %op_adhlbc %op_adhlde %op_adhlhl %op_adhlsp %op_andh %op_andhl %op_cph %op_cphl %op_dech %op_dechl %op_decihl %op_exdehl %op_exsphl %op_exx %op_inch %op_inchl %op_incihl %op_jphl %op_ldah %op_ldahl %op_ldbh %op_ldbhl %op_ldch %op_ldchl %op_lddh %op_lddhl %op_ldeh %op_ldehl %op_ldha %op_ldhb %op_ldhc %op_ldhd %op_ldhe %op_ldhhl %op_ldhl %op_ldhl1 %op_ldhla %op_ldhlb %op_ldhlc %op_ldhld %op_ldhle %op_ldhlh %op_ldhlin %op_ldhll %op_ldhlnn %op_ldhn %op_ldinhl %op_ldlh %op_ldlhl %op_ldsphl %op_orh %op_orhl %op_pophl %op_pushhl %op_sbch %op_sbchl %op_subh %op_subhl %op_xorh %op_xorhl
+sim1.c L 8 cpu %op_adchl %op_adcl %op_addhl %op_addl %op_adhlbc %op_adhlde %op_adhlhl %op_adhlsp %op_andhl %op_andl %op_cphl %op_cplr %op_dechl %op_decihl %op_decl %op_exdehl %op_exsphl %op_exx %op_inchl %op_incihl %op_incl %op_jphl %op_ldahl %op_ldal %op_ldbhl %op_ldbl %op_ldchl %op_ldcl %op_lddhl %op_lddl %op_ldehl %op_ldel %op_ldhhl %op_ldhl %op_ldhl1 %op_ldhla %op_ldhlb %op_ldhlc %op_ldhld %op_ldhle %op_ldhlh %op_ldhlin %op_ldhll %op_ldhlnn %op_ldinhl %op_ldla %op_ldlb %op_ldlc %op_ldld %op_ldle %op_ldlh %op_ldlhl %op_ldln %op_ldsphl %op_orhl %op_orl %op_pophl %op_pushhl %op_sbchl %op_sbcl %op_subhl %op_subl %op_xorhl %op_xorl
+sim1.c A_ 8 %op_exafaf
+sim1.c B_ 8 %op_exx
+sim1.c C_ 8 %op_exx
+sim1.c D_ 8 %op_exx
+sim1.c E_ 8 %op_exx
+sim1.c H_ 8 %op_exx
+sim1.c L_ 8 %op_exx
+sim1.c PC 8 cpu %op_adcn %op_addn %op_andn %op_calc %op_call %op_calm %op_calnc %op_calnz %op_calp %op_calpe %op_calpo %op_calz %op_cpn %op_djnz %op_in %op_jp %op_jpc %op_jphl %op_jpm %op_jpnc %op_jpnz %op_jpp %op_jppe %op_jppo %op_jpz %op_jr %op_jrc %op_jrnc %op_jrnz %op_jrz %op_ldan %op_ldann %op_ldbcnn %op_ldbn %op_ldcn %op_lddenn %op_lddn %op_lden %op_ldhl1 %op_ldhlin %op_ldhlnn %op_ldhn %op_ldinhl %op_ldln %op_ldnna %op_ldspnn %op_orn %op_out %op_ret %op_retc %op_retm %op_retnc %op_retnz %op_retp %op_retpe %op_retpo %op_retz %op_rst00 %op_rst08 %op_rst10 %op_rst18 %op_rst20 %op_rst28 %op_rst30 %op_rst38 %op_sbcn %op_subn %op_xorn
+sim1.c STACK 8 cpu %op_adhlsp %op_calc %op_call %op_calm %op_calnc %op_calnz %op_calp %op_calpe %op_calpo %op_calz %op_decsp %op_exsphl %op_incsp %op_ldsphl %op_ldspnn %op_popaf %op_popbc %op_popde %op_pophl %op_pushaf %op_pushbc %op_pushde %op_pushhl %op_ret %op_retc %op_retm %op_retnc %op_retnz %op_retp %op_retpe %op_retpo %op_retz %op_rst00 %op_rst08 %op_rst10 %op_rst18 %op_rst20 %op_rst28 %op_rst30 %op_rst38
+sim1.c I 8
+sim1.c IFF 8 %op_di %op_ei %op_halt
+sim1.c IX 8 cpu
+sim1.c IY 8 cpu
+sim1.c F 8 cpu %op_adca %op_adcb %op_adcc %op_adcd %op_adce %op_adch %op_adchl %op_adcl %op_adcn %op_adda %op_addb %op_addc %op_addd %op_adde %op_addh %op_addhl %op_addl %op_addn %op_adhlbc %op_adhlde %op_adhlhl %op_adhlsp %op_anda %op_andb %op_andc %op_andd %op_ande %op_andh %op_andhl %op_andl %op_andn %op_calc %op_calm %op_calnc %op_calnz %op_calp %op_calpe %op_calpo %op_calz %op_ccf %op_cpa %op_cpb %op_cpc %op_cpd %op_cpe %op_cph %op_cphl %op_cpl %op_cplr %op_cpn %op_daa %op_deca %op_decb %op_decc %op_decd %op_dece %op_dech %op_decihl %op_decl %op_exafaf %op_inca %op_incb %op_incc %op_incd %op_ince %op_inch %op_incihl %op_incl %op_jpc %op_jpm %op_jpnc %op_jpnz %op_jpp %op_jppe %op_jppo %op_jpz %op_jrc %op_jrnc %op_jrnz %op_jrz %op_ora %op_orb %op_orc %op_ord %op_ore %op_orh %op_orhl %op_orl %op_orn %op_popaf %op_pushaf %op_retc %op_retm %op_retnc %op_retnz %op_retp %op_retpe %op_retpo %op_retz %op_rla %op_rlca %op_rra %op_rrca %op_sbca %op_sbcb %op_sbcc %op_sbcd %op_sbce %op_sbch %op_sbchl %op_sbcl %op_sbcn %op_scf %op_suba %op_subb %op_subc %op_subd %op_sube %op_subh %op_subhl %op_subl %op_subn %op_xora %op_xorb %op_xorc %op_xord %op_xore %op_xorh %op_xorhl %op_xorl %op_xorn
+sim1.c F_ 8 %op_exafaf
+sim1.c R 8 cpu %op_halt
+sim1.c mem_wp 8
+sim1.c ram 8 cpu %op_adchl %op_addhl %op_adhlsp %op_andhl %op_calc %op_call %op_calm %op_calnc %op_calnz %op_calp %op_calpe %op_calpo %op_calz %op_cphl %op_decihl %op_decsp %op_incihl %op_incsp %op_jp %op_jpc %op_jphl %op_jpm %op_jpnc %op_jpnz %op_jpp %op_jppe %op_jppo %op_jpz %op_ldabc %op_ldade %op_ldahl %op_ldann %op_ldbca %op_ldbhl %op_ldchl %op_lddea %op_lddhl %op_ldehl %op_ldhhl %op_ldhl1 %op_ldhla %op_ldhlb %op_ldhlc %op_ldhld %op_ldhle %op_ldhlh %op_ldhlin %op_ldhll %op_ldinhl %op_ldlhl %op_ldnna %op_ldsphl %op_ldspnn %op_orhl %op_popaf %op_popbc %op_popde %op_pophl %op_pushaf %op_pushbc %op_pushde %op_pushhl %op_ret %op_retc %op_retm %op_retnc %op_retnz %op_retp %op_retpe %op_retpo %op_retz %op_rst00 %op_rst08 %op_rst10 %op_rst18 %op_rst20 %op_rst28 %op_rst30 %op_rst38 %op_sbchl %op_subhl %op_xorhl
+sim1.c wrk_ram 8
+sim1.c cpu_state 8 cpu %op_halt %op_notimpl
+sim1.c s_flag 8
+sim1.c l_flag 8
+sim1.c m_flag 8
+sim1.c x_flag 8
+sim1.c break_flag 8
+sim1.c i_flag 8
+sim1.c f_flag 8 cpu
+sim1.c cpu_error 8 %op_halt %op_notimpl
+sim1.c int_type 8 %op_halt
+sim1.c int_mode 8
+sim1.c cntl_c 8
+sim1.c cntl_bs 8
+sim1.c parrity 8 %op_anda %op_andb %op_andc %op_andd %op_ande %op_andh %op_andhl %op_andl %op_andn %op_daa %op_ora %op_orb %op_orc %op_ord %op_ore %op_orh %op_orhl %op_orl %op_orn %op_xorb %op_xorc %op_xord %op_xore %op_xorh %op_xorhl %op_xorl %op_xorn
+sim1.c sb_next 8
+sim1.c tmax 8 cpu
+sim1.c busy_loop_cnt 25 %op_halt
+sim1.c xfn 8
+sim1.c his 8 cpu
+sim1.c h_next 8 cpu
+sim1.c h_flag 8 cpu
+sim1.c soft 8
+sim1.c t_states 8 cpu
+sim1.c t_flag 8 cpu
+sim1.c t_start 8 cpu
+sim1.c t_end 8 cpu
+sim0.c A 8 load_core %save_core
+sim0.c B 8 load_core %save_core
+sim0.c C 8 load_core %save_core
+sim0.c D 8 load_core %save_core
+sim0.c E 8 load_core %save_core
+sim0.c H 8 load_core %save_core
+sim0.c L 8 load_core %save_core
+sim0.c A_ 8 load_core %save_core
+sim0.c B_ 8 load_core %save_core
+sim0.c C_ 8 load_core %save_core
+sim0.c D_ 8 load_core %save_core
+sim0.c E_ 8 load_core %save_core
+sim0.c H_ 8 load_core %save_core
+sim0.c L_ 8 load_core %save_core
+sim0.c PC 8 load_core %load_hex %load_mos main %save_core
+sim0.c STACK 8 load_core main %save_core
+sim0.c I 8 load_core %save_core
+sim0.c IFF 8 load_core %save_core
+sim0.c IX 8 load_core %save_core
+sim0.c IY 8 load_core %save_core
+sim0.c F 8 load_core %save_core
+sim0.c F_ 8 load_core %save_core
+sim0.c R 8 load_core %save_core
+sim0.c mem_wp 8
+sim0.c ram 8 load_core load_file %load_hex %load_mos main %save_core
+sim0.c wrk_ram 8 load_file %load_hex %load_mos main
+sim0.c cpu_state 8
+sim0.c s_flag 8 main
+sim0.c l_flag 8 main
+sim0.c m_flag 8 main
+sim0.c x_flag 8 main
+sim0.c break_flag 8
+sim0.c i_flag 8 main
+sim0.c f_flag 8 main
+sim0.c cpu_error 8
+sim0.c int_type 8
+sim0.c int_mode 8
+sim0.c cntl_c 8
+sim0.c cntl_bs 8
+sim0.c parrity 8
+sim0.c sb_next 8
+sim0.c tmax 8 main
+sim0.c busy_loop_cnt 8
+sim0.c xfn 8 main
+sim0.c his 8
+sim0.c h_next 8
+sim0.c h_flag 8
+sim0.c soft 8
+sim0.c t_states 8
+sim0.c t_flag 8
+sim0.c t_start 8
+sim0.c t_end 8
+registers.c A 8 Show_Registers Update_Registers Zero_Registers
+registers.c B 8 Dump_From_Register Show_Registers Update_Registers Zero_Registers
+registers.c C 8 Dump_From_Register Show_Registers Update_Registers Zero_Registers
+registers.c D 8 Dump_From_Register Show_Registers Update_Registers Zero_Registers
+registers.c E 8 Dump_From_Register Show_Registers Update_Registers Zero_Registers
+registers.c H 8 Dump_From_Register Show_Registers Update_Registers Zero_Registers
+registers.c L 8 Dump_From_Register Show_Registers Update_Registers Zero_Registers
+registers.c A_ 8 Show_Registers Update_Registers Zero_Registers
+registers.c B_ 8 Show_Registers Update_Registers Zero_Registers
+registers.c C_ 8 Show_Registers Update_Registers Zero_Registers
+registers.c D_ 8 Show_Registers Update_Registers Zero_Registers
+registers.c E_ 8 Show_Registers Update_Registers Zero_Registers
+registers.c H_ 8 Show_Registers Update_Registers Zero_Registers
+registers.c L_ 8 Show_Registers Update_Registers Zero_Registers
+registers.c PC 8 Dump_From_Register Show_Registers Update_Registers
+registers.c STACK 8 Dump_From_Register Show_Registers Update_Registers Zero_Registers
+registers.c I 8 Show_Registers Update_Registers
+registers.c IFF 8
+registers.c IX 8 Dump_From_Register Show_Registers Update_Registers Zero_Registers
+registers.c IY 8 Dump_From_Register Show_Registers Update_Registers Zero_Registers
+registers.c F 8 Zero_Registers
+registers.c F_ 8 Show_Registers Update_Registers Zero_Registers
+registers.c R 8 Show_Registers Update_Registers
+registers.c mem_wp 8
+registers.c ram 8 Dump_From_Register Show_Registers Update_Registers Zero_Registers
+registers.c wrk_ram 8
+registers.c cpu_state 8
+registers.c s_flag 8
+registers.c l_flag 8
+registers.c m_flag 8
+registers.c x_flag 8
+registers.c break_flag 8
+registers.c i_flag 8
+registers.c f_flag 8
+registers.c cpu_error 8
+registers.c int_type 8
+registers.c int_mode 8
+registers.c cntl_c 8
+registers.c cntl_bs 8
+registers.c parrity 8
+registers.c sb_next 8
+registers.c tmax 8
+registers.c busy_loop_cnt 8
+registers.c xfn 8
+registers.c his 8
+registers.c h_next 8
+registers.c h_flag 8
+registers.c soft 8
+registers.c t_states 8
+registers.c t_flag 8
+registers.c t_start 8
+registers.c t_end 8
+registers.c Disass_Str 8
+registers.c Opcode_Str 8
+registers.c show_opcodes 8
+registers.c run_slow 8
+registers.c run_slow_pref 8
+registers.c tstr 8 Show_Registers
+registers.c lstr 8
+registers.c Dump_Reg 8 Zero_Registers
+registers.c IOPort 8
+registers.c current_port 8
+registers.c a_entry 1 Show_Registers Update_Registers init_Registers
+registers.c bc_entry 1 Show_Registers Update_Registers init_Registers
+registers.c de_entry 1 Show_Registers Update_Registers init_Registers
+registers.c hl_entry 1 Show_Registers Update_Registers init_Registers
+registers.c ix_entry 1 Show_Registers Update_Registers init_Registers
+registers.c iy_entry 1 Show_Registers Update_Registers init_Registers
+registers.c pc_entry 1 Show_Registers Update_Registers init_Registers
+registers.c sp_entry 1 Show_Registers Update_Registers init_Registers
+registers.c i_entry 1 Show_Registers Update_Registers init_Registers
+registers.c r_entry 1 Show_Registers Update_Registers init_Registers
+registers.c aa_entry 1 Show_Registers Update_Registers init_Registers
+registers.c abc_entry 1 Show_Registers Update_Registers init_Registers
+registers.c ade_entry 1 Show_Registers Update_Registers init_Registers
+registers.c ahl_entry 1 Show_Registers Update_Registers init_Registers
+registers.c mem_entry 1 Show_Registers Update_Registers init_Registers
+registers.c Mem_REG 2 Dump_From_Register Show_Registers Update_Registers
+ports.c A 8
+ports.c B 8
+ports.c C 8
+ports.c D 8
+ports.c E 8
+ports.c H 8
+ports.c L 8
+ports.c A_ 8
+ports.c B_ 8
+ports.c C_ 8
+ports.c D_ 8
+ports.c E_ 8
+ports.c H_ 8
+ports.c L_ 8
+ports.c PC 8
+ports.c STACK 8
+ports.c I 8
+ports.c IFF 8
+ports.c IX 8
+ports.c IY 8
+ports.c F 8
+ports.c F_ 8
+ports.c R 8
+ports.c mem_wp 8
+ports.c ram 8
+ports.c wrk_ram 8
+ports.c cpu_state 8
+ports.c s_flag 8
+ports.c l_flag 8
+ports.c m_flag 8
+ports.c x_flag 8
+ports.c break_flag 8
+ports.c i_flag 8
+ports.c f_flag 8
+ports.c cpu_error 8
+ports.c int_type 8
+ports.c int_mode 8
+ports.c cntl_c 8
+ports.c cntl_bs 8
+ports.c parrity 8
+ports.c sb_next 8
+ports.c tmax 8
+ports.c busy_loop_cnt 8
+ports.c xfn 8
+ports.c his 8
+ports.c h_next 8
+ports.c h_flag 8
+ports.c soft 8
+ports.c t_states 8
+ports.c t_flag 8
+ports.c t_start 8
+ports.c t_end 8
+ports.c Disass_Str 8
+ports.c Opcode_Str 8
+ports.c show_opcodes 8
+ports.c run_slow 8
+ports.c run_slow_pref 8
+ports.c tstr 8 Dump_IOPort IOPort_IN
+ports.c lstr 8
+ports.c Dump_Reg 8
+ports.c IOPort 8 Create_IOPort_Struct Dump_IOPort IOPort_IN IOPort_OUT init_IOport
+ports.c current_port 8
+ports.c ioport_textbuffer 1 Dump_IOPort init_IOport
+ports.c ioport_win 1 Show_IOport init_IOport
+ports.c ioporttext 1 Dump_IOPort init_IOport
+ports.c in_port_prompt 1 IOPort_IN init_IOport
+ports.c in_port_data 1 init_IOport
+memory.c A 8
+memory.c B 8
+memory.c C 8
+memory.c D 8
+memory.c E 8
+memory.c H 8
+memory.c L 8
+memory.c A_ 8
+memory.c B_ 8
+memory.c C_ 8
+memory.c D_ 8
+memory.c E_ 8
+memory.c H_ 8
+memory.c L_ 8
+memory.c PC 8
+memory.c STACK 8
+memory.c I 8
+memory.c IFF 8
+memory.c IX 8
+memory.c IY 8
+memory.c F 8
+memory.c F_ 8
+memory.c R 8
+memory.c mem_wp 8
+memory.c ram 8 Mem_Change_Addr Mem_Clicked Show_Memory Update_Memory
+memory.c wrk_ram 8
+memory.c cpu_state 8
+memory.c s_flag 8
+memory.c l_flag 8
+memory.c m_flag 8
+memory.c x_flag 8
+memory.c break_flag 8
+memory.c i_flag 8
+memory.c f_flag 8
+memory.c cpu_error 8
+memory.c int_type 8
+memory.c int_mode 8
+memory.c cntl_c 8
+memory.c cntl_bs 8
+memory.c parrity 8
+memory.c sb_next 8
+memory.c tmax 8
+memory.c busy_loop_cnt 8
+memory.c xfn 8
+memory.c his 8
+memory.c h_next 8
+memory.c h_flag 8
+memory.c soft 8
+memory.c t_states 8
+memory.c t_flag 8
+memory.c t_start 8
+memory.c t_end 8
+memory.c Disass_Str 8
+memory.c Opcode_Str 8
+memory.c show_opcodes 8
+memory.c run_slow 8
+memory.c run_slow_pref 8
+memory.c tstr 8 Show_Addr_Content
+memory.c lstr 8
+memory.c Dump_Reg 8 Mem_Change_Addr Update_Memory
+memory.c IOPort 8
+memory.c current_port 8
+memory.c mem_textbuffer 1 Mem_Clicked Scroll_Memory Show_Memory darken_memory highlight_memory init_Memory mem_addr_to_row
+memory.c redtag 1 Mem_Clicked Show_Memory init_Memory
+memory.c greentag 1 Show_Memory init_Memory
+memory.c Memory_Selected 1 Mem_Change_Addr Mem_Clicked Show_Addr_Content Show_Memory Synch_Mem_Reg Update_Memory init_Memory
+memory.c mem_sel_row 1 Mem_Clicked
+memory.c mem_sel_col 1 Mem_Clicked
+memory.c mem_buff_row_start 1 Show_Memory init_Memory
+memory.c Selected_Memory_Content 1 Mem_Change_Addr Mem_Clicked Show_Addr_Content Update_Memory
+memory.c Selected_Memory_Addr 1 Mem_Change_Addr Mem_Clicked Show_Addr_Content Show_Memory Synch_Mem_Reg Update_Memory
+memory.c Mem_Addr_Entry 1 Show_Addr_Content init_Memory
+memory.c Mem_Content_Entry 1 Show_Addr_Content Update_Memory init_Memory
+memory.c memtext 1 Scroll_Memory init_Memory
+memory.c Mem_REG 4 Synch_Mem_Reg
+main.c A 8
+main.c B 8
+main.c C 8
+main.c D 8
+main.c E 8
+main.c H 8
+main.c L 8
+main.c A_ 8
+main.c B_ 8
+main.c C_ 8
+main.c D_ 8
+main.c E_ 8
+main.c H_ 8
+main.c L_ 8
+main.c PC 8 Show_All main
+main.c STACK 8
+main.c I 8
+main.c IFF 8
+main.c IX 8
+main.c IY 8
+main.c F 8
+main.c F_ 8
+main.c R 8
+main.c mem_wp 8
+main.c ram 8
+main.c wrk_ram 8
+main.c cpu_state 8
+main.c s_flag 8
+main.c l_flag 8
+main.c m_flag 8
+main.c x_flag 8
+main.c break_flag 8
+main.c i_flag 8
+main.c f_flag 8
+main.c cpu_error 8
+main.c int_type 8
+main.c int_mode 8
+main.c cntl_c 8
+main.c cntl_bs 8
+main.c parrity 8
+main.c sb_next 8
+main.c tmax 8
+main.c busy_loop_cnt 8
+main.c xfn 8
+main.c his 8
+main.c h_next 8
+main.c h_flag 8
+main.c soft 8
+main.c t_states 8
+main.c t_flag 8
+main.c t_start 8
+main.c t_end 8
+main.c Disass_Str 8
+main.c Opcode_Str 8
+main.c show_opcodes 8
+main.c run_slow 8
+main.c run_slow_pref 8
+main.c tstr 8
+main.c lstr 8
+main.c Dump_Reg 8 Show_All main
+main.c IOPort 8
+main.c current_port 8
+log.c A 8
+log.c B 8
+log.c C 8
+log.c D 8
+log.c E 8
+log.c H 8
+log.c L 8
+log.c A_ 8
+log.c B_ 8
+log.c C_ 8
+log.c D_ 8
+log.c E_ 8
+log.c H_ 8
+log.c L_ 8
+log.c PC 8
+log.c STACK 8
+log.c I 8
+log.c IFF 8
+log.c IX 8
+log.c IY 8
+log.c F 8
+log.c F_ 8
+log.c R 8
+log.c mem_wp 8
+log.c ram 8
+log.c wrk_ram 8
+log.c cpu_state 8
+log.c s_flag 8
+log.c l_flag 8
+log.c m_flag 8
+log.c x_flag 8
+log.c break_flag 8
+log.c i_flag 8
+log.c f_flag 8
+log.c cpu_error 8
+log.c int_type 8
+log.c int_mode 8
+log.c cntl_c 8
+log.c cntl_bs 8
+log.c parrity 8
+log.c sb_next 8
+log.c tmax 8
+log.c busy_loop_cnt 8
+log.c xfn 8
+log.c his 8
+log.c h_next 8
+log.c h_flag 8
+log.c soft 8
+log.c t_states 8
+log.c t_flag 8
+log.c t_start 8
+log.c t_end 8
+log.c log_textbuffer 1 Add_to_Log init_Log
+log.c logtext 1 Add_to_Log init_Log
+log.c Log 1 init_Log show_log
+iosim.c A 8
+iosim.c B 8
+iosim.c C 8
+iosim.c D 8
+iosim.c E 8
+iosim.c H 8
+iosim.c L 8
+iosim.c A_ 8
+iosim.c B_ 8
+iosim.c C_ 8
+iosim.c D_ 8
+iosim.c E_ 8
+iosim.c H_ 8
+iosim.c L_ 8
+iosim.c PC 8
+iosim.c STACK 8
+iosim.c I 8
+iosim.c IFF 8
+iosim.c IX 8
+iosim.c IY 8
+iosim.c F 8
+iosim.c F_ 8
+iosim.c R 8
+iosim.c mem_wp 8
+iosim.c ram 8
+iosim.c wrk_ram 8
+iosim.c cpu_state 8
+iosim.c s_flag 8
+iosim.c l_flag 8
+iosim.c m_flag 8
+iosim.c x_flag 8
+iosim.c break_flag 8
+iosim.c i_flag 8
+iosim.c f_flag 8
+iosim.c cpu_error 8
+iosim.c int_type 8
+iosim.c int_mode 8
+iosim.c cntl_c 8
+iosim.c cntl_bs 8
+iosim.c parrity 8
+iosim.c sb_next 8
+iosim.c tmax 8
+iosim.c busy_loop_cnt 8
+iosim.c xfn 8
+iosim.c his 8
+iosim.c h_next 8
+iosim.c h_flag 8
+iosim.c soft 8
+iosim.c t_states 8
+iosim.c t_flag 8
+iosim.c t_start 8
+iosim.c t_end 8
+guiglb.h Disass_Str 4
+guiglb.h Opcode_Str 4
+guiglb.h show_opcodes 4
+guiglb.h run_slow 4
+guiglb.h run_slow_pref 4
+guiglb.h tstr 4
+guiglb.h lstr 4
+guiglb.h Dump_Reg 4
+guiglb.h IOPort 4
+guiglb.h current_port 4
+guiglb.c Disass_Str 8
+guiglb.c Opcode_Str 8
+guiglb.c show_opcodes 10
+guiglb.c run_slow 10
+guiglb.c run_slow_pref 10
+guiglb.c tstr 10
+guiglb.c lstr 10
+guiglb.c Dump_Reg 10
+guiglb.c IOPort 10
+guiglb.c current_port 10
+general.c A 8
+general.c B 8
+general.c C 8
+general.c D 8
+general.c E 8
+general.c H 8
+general.c L 8
+general.c A_ 8
+general.c B_ 8
+general.c C_ 8
+general.c D_ 8
+general.c E_ 8
+general.c H_ 8
+general.c L_ 8
+general.c PC 8 Get_File_Open
+general.c STACK 8
+general.c I 8
+general.c IFF 8
+general.c IX 8
+general.c IY 8
+general.c F 8
+general.c F_ 8
+general.c R 8
+general.c mem_wp 8
+general.c ram 8
+general.c wrk_ram 8
+general.c cpu_state 8 check_gui_break
+general.c s_flag 8
+general.c l_flag 8
+general.c m_flag 8
+general.c x_flag 8
+general.c break_flag 8
+general.c i_flag 8
+general.c f_flag 8
+general.c cpu_error 8
+general.c int_type 8
+general.c int_mode 8
+general.c cntl_c 8
+general.c cntl_bs 8
+general.c parrity 8
+general.c sb_next 8
+general.c tmax 8
+general.c busy_loop_cnt 8
+general.c xfn 8
+general.c his 8
+general.c h_next 8
+general.c h_flag 8
+general.c soft 8
+general.c t_states 8
+general.c t_flag 8
+general.c t_start 8
+general.c t_end 8
+general.c Disass_Str 8
+general.c Opcode_Str 8
+general.c show_opcodes 8
+general.c run_slow 8 check_gui_break
+general.c run_slow_pref 8
+general.c tstr 8
+general.c lstr 8 Get_File_Open
+general.c Dump_Reg 8 Get_File_Open
+general.c IOPort 8
+general.c current_port 8
+general.c FCwin 1 Get_File Get_File_Cancel Get_File_Open
+flags.c A 8
+flags.c B 8
+flags.c C 8
+flags.c D 8
+flags.c E 8
+flags.c H 8
+flags.c L 8
+flags.c A_ 8
+flags.c B_ 8
+flags.c C_ 8
+flags.c D_ 8
+flags.c E_ 8
+flags.c H_ 8
+flags.c L_ 8
+flags.c PC 8
+flags.c STACK 8
+flags.c I 8
+flags.c IFF 8
+flags.c IX 8
+flags.c IY 8
+flags.c F 8 Show_Flags Toggle_Flag
+flags.c F_ 8
+flags.c R 8
+flags.c mem_wp 8
+flags.c ram 8
+flags.c wrk_ram 8
+flags.c cpu_state 8
+flags.c s_flag 8
+flags.c l_flag 8
+flags.c m_flag 8
+flags.c x_flag 8
+flags.c break_flag 8
+flags.c i_flag 8
+flags.c f_flag 8
+flags.c cpu_error 8
+flags.c int_type 8
+flags.c int_mode 8
+flags.c cntl_c 8
+flags.c cntl_bs 8
+flags.c parrity 8
+flags.c sb_next 8
+flags.c tmax 8
+flags.c busy_loop_cnt 8
+flags.c xfn 8
+flags.c his 8
+flags.c h_next 8
+flags.c h_flag 8
+flags.c soft 8
+flags.c t_states 8
+flags.c t_flag 8
+flags.c t_start 8
+flags.c t_end 8
+flags.c FlagEnt 2 init_Flags
+flags.c flentry 2 Show_Flags init_Flags
+disas.c optab 1 disass
+disas.c addr 1 disass %rout
+disas.c unkown 1 %cbop %ddfd %edop
+disas.c reg 1 %cbop %ddfd
+disas.c regix 1 %ddfd
+disas.c regiy 1 %ddfd
+disas.c Disass_Str 2 %cbop %ddfd %edop %inout %iout %nnout %nout %opout %rout
+disas.c Opcode_Str 2 get_opcodes
+code.c A 8
+code.c B 8
+code.c C 8
+code.c D 8
+code.c E 8
+code.c H 8
+code.c L 8
+code.c A_ 8
+code.c B_ 8
+code.c C_ 8
+code.c D_ 8
+code.c E_ 8
+code.c H_ 8
+code.c L_ 8
+code.c PC 8 Code_Break Code_UnBreak build_code_cache do_code_highlights dump_code_vars set_PC_to_selection
+code.c STACK 8 dump_code_vars
+code.c I 8
+code.c IFF 8
+code.c IX 8
+code.c IY 8
+code.c F 8
+code.c F_ 8
+code.c R 8
+code.c mem_wp 8
+code.c ram 8 Code_Break Code_UnBreak Show_Code build_code_cache do_code_highlights dump_code_vars set_PC_to_selection
+code.c wrk_ram 8
+code.c cpu_state 8
+code.c s_flag 8
+code.c l_flag 8
+code.c m_flag 8
+code.c x_flag 8
+code.c break_flag 8
+code.c i_flag 8
+code.c f_flag 8
+code.c cpu_error 8
+code.c int_type 8
+code.c int_mode 8
+code.c cntl_c 8
+code.c cntl_bs 8
+code.c parrity 8
+code.c sb_next 8
+code.c tmax 8
+code.c busy_loop_cnt 8
+code.c xfn 8
+code.c his 8
+code.c h_next 8
+code.c h_flag 8
+code.c soft 8 Code_Break Code_UnBreak Do_Code_Reload Show_Code do_code_highlights
+code.c t_states 8
+code.c t_flag 8
+code.c t_start 8
+code.c t_end 8
+code.c Disass_Str 8 Show_Code build_code_cache
+code.c Opcode_Str 8 Show_Code
+code.c show_opcodes 8 Show_Code
+code.c run_slow 8
+code.c run_slow_pref 8 init_Code
+code.c tstr 8 Code_Break Show_Code
+code.c lstr 8 Code_Break Code_UnBreak
+code.c Dump_Reg 8 set_PC_to_selection
+code.c IOPort 8
+code.c current_port 8
+code.c code_textbuffer 1 Code_Clicked Show_Code darken_code highlight_code init_Code
+code.c redtag 1 Code_Clicked Do_Code_Reload do_code_highlights init_Code
+code.c greentag 1 Do_Code_Reload do_code_highlights init_Code
+code.c bluetag 1 Do_Code_Reload do_code_highlights init_Code
+code.c boldtag 1 init_Code
+code.c selected_code_line 1 Code_Clicked dump_code_vars
+code.c Selected_Code_Addr 1 Code_Break Code_Clicked Code_UnBreak do_code_highlights dump_code_vars set_PC_to_selection
+code.c codelines 1 Code_Break Show_Code build_code_cache do_code_highlights line2addr
+code.c codetext 1 Show_Code dump_code_vars init_Code
+code.c buff_lines_start 1 Code_Break Code_Clicked Show_Code do_code_highlights
+code.c Code_Selected 1 Code_Break Code_Clicked Code_UnBreak Do_Code_Reload do_code_highlights dump_code_vars init_Code set_PC_to_selection
+callbacks.c A 8
+callbacks.c B 8
+callbacks.c C 8
+callbacks.c D 8
+callbacks.c E 8
+callbacks.c H 8
+callbacks.c L 8
+callbacks.c A_ 8
+callbacks.c B_ 8
+callbacks.c C_ 8
+callbacks.c D_ 8
+callbacks.c E_ 8
+callbacks.c H_ 8
+callbacks.c L_ 8
+callbacks.c PC 8 on_Mem_Update_Button_clicked on_OpcodeButton_toggled on_Reset_Button_clicked on_Step_tool_clicked
+callbacks.c STACK 8
+callbacks.c I 8
+callbacks.c IFF 8
+callbacks.c IX 8
+callbacks.c IY 8
+callbacks.c F 8
+callbacks.c F_ 8
+callbacks.c R 8
+callbacks.c mem_wp 8
+callbacks.c ram 8 on_Reset_Button_clicked
+callbacks.c wrk_ram 8
+callbacks.c cpu_state 8 on_RunButton_toggled
+callbacks.c s_flag 8
+callbacks.c l_flag 8
+callbacks.c m_flag 8
+callbacks.c x_flag 8
+callbacks.c break_flag 8
+callbacks.c i_flag 8
+callbacks.c f_flag 8
+callbacks.c cpu_error 8
+callbacks.c int_type 8
+callbacks.c int_mode 8
+callbacks.c cntl_c 8
+callbacks.c cntl_bs 8
+callbacks.c parrity 8
+callbacks.c sb_next 8
+callbacks.c tmax 8
+callbacks.c busy_loop_cnt 8
+callbacks.c xfn 8
+callbacks.c his 8
+callbacks.c h_next 8
+callbacks.c h_flag 8
+callbacks.c soft 8
+callbacks.c t_states 8
+callbacks.c t_flag 8
+callbacks.c t_start 8
+callbacks.c t_end 8
+callbacks.c Disass_Str 8
+callbacks.c Opcode_Str 8
+callbacks.c show_opcodes 8 on_OpcodeButton_toggled
+callbacks.c run_slow 8 on_SlowRunButton_toggled on_SlowRunSpin_value_changed
+callbacks.c run_slow_pref 8 on_SlowRunButton_toggled on_SlowRunSpin_value_changed
+callbacks.c tstr 8
+callbacks.c lstr 8
+callbacks.c Dump_Reg 8 on_BC_Button_toggled on_DE_Button_toggled on_HL_Button_toggled on_IX_Button_toggled on_IY_Button_toggled on_Mem_Button_toggled on_PC_Button_toggled on_SP_Button_toggled on_Step_tool_clicked on_Update_REG_button_clicked
+callbacks.c IOPort 8 on_IOASCII_toggled on_IOHex_toggled on_PortSpin_value_changed
+callbacks.c current_port 8 on_IOASCII_toggled on_IOHex_toggled on_PortSpin_value_changed on_Step_tool_clicked on_ioport1_activate

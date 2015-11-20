@@ -1,0 +1,227 @@
+/*
+        CP/M UTILITY TO FIND STRINGS IN FILES
+
+        THIS PROGRAM WAS WRITTEN FOR THE INTEL PL/M-80 CROSS COMPILER
+
+        1.0 04/09/2007 UDO MUNK		INITIAL VERSION
+        1.1 08/22/2007 UDO MUNK		ADDED UPPER/LOWER CASE SUPPORT
+
+        THE STRING ARGUMENT FROM THE COMMANDLINE IS CONVERTED BACK
+        TO LOWER CASE. FOR AN UPPER CASE CHARACTER A PRECEDING CARROT
+        IS USED. TO FIND THE CARROT ITSELF USE TWO CARROT CHARACTERS.
+*/
+
+0100H: /* ORIGIN OF THIS PROGRAM FOR CP/M */
+
+DECLARE		/* CONSTANTS */
+    FALSE	LITERALLY '0',
+    TRUE	LITERALLY '1',
+    CR		LITERALLY '13',		/* CARRIAGE RETURN */
+    LF		LITERALLY '10',		/* LINEFEED */
+    CNTLZ	LITERALLY '1AH',	/* CNTL-Z */
+    CAR		LITERALLY '5EH';	/* CARROT */
+
+DECLARE		/* BDOS FUNCTIONS */
+    BDOS$EXIT	LITERALLY '0',		/* EXIT PROGRAM */
+    BDOS$PRINT	LITERALLY '2',		/* PRINT CONSOLE CHARACTER */
+    BDOS$PRINTS	LITERALLY '9',		/* PRINT CONSOLE STRING */
+    BDOS$FOPEN	LITERALLY '15',		/* OPEN FILE */
+    BDOS$FREAD	LITERALLY '20';		/* READ FILE */
+
+/* JUST FOR THE FUN OF IT: A DIGITAL RESEARCH LIKE COPYRIGHT */
+DECLARE
+    COPYRIGHT DATA (' V1.1, COPYRIGHT (C) 2007, UDO MUNK ');
+
+DECLARE		/* DEFAULT FILE CONTROL BLOCK */
+    FCB$A	ADDRESS INITIAL(5CH),
+    FCB		BASED FCB$A (33) BYTE;
+
+DECLARE		/* DEFAULT BUFFER */
+    BUFF$A	ADDRESS INITIAL(80H),
+    BUFF	BASED BUFF$A (128) BYTE;
+
+DECLARE		/* SOME MORE GLOBAL VARIABLES */
+    LNO		ADDRESS INITIAL(0),	/* LINE NO. */
+    (I,J,K,C)	BYTE,
+    CMD		(128) BYTE,		/* COMMAND LINE ARGUMENT */
+    LBUFF	(256) BYTE;		/* LINE BUFFER */
+
+/* CALL BDOS FUNCTIONS WITHOUT RETURN CODE */
+BDOS1: PROCEDURE(FUNC,PARM);
+    DECLARE FUNC BYTE;
+    DECLARE PARM ADDRESS;
+    DECLARE BDOS$JUMP LITERALLY '05H';
+    GO TO BDOS$JUMP;
+END BDOS1;
+
+/* CALL BDOS FUNCTIONS WITH BYTE RETURN CODE */
+BDOS2: PROCEDURE(FUNC,PARM) BYTE;
+    DECLARE FUNC BYTE;
+    DECLARE PARM ADDRESS;
+    DECLARE BDOS$JUMP LITERALLY '05H';
+    GO TO BDOS$JUMP;
+END BDOS2;
+
+/* PRINT CR AND LF */
+CRLF: PROCEDURE;
+    CALL BDOS1(BDOS$PRINT,CR);
+    CALL BDOS1(BDOS$PRINT,LF);
+END CRLF;
+
+/* PRINT A STRING TERMINATED WITH $ CHARACTER */
+PRINTS: PROCEDURE(S);
+    DECLARE S ADDRESS;
+    CALL BDOS1(BDOS$PRINTS,S);
+END PRINTS;
+
+/* PRINT A 0 TERMINATED STRING */
+PRINT0: PROCEDURE(S);
+    DECLARE S ADDRESS;
+    DECLARE SS BASED S (256) BYTE;
+    DECLARE I BYTE;
+    I = 0;
+    DO WHILE SS(I) <> 0;
+        CALL BDOS1(BDOS$PRINT,SS(I));
+        I = I + 1;
+    END;
+END PRINT0;
+
+/* PRINT DECIMAL NUMBER */
+PRINTN: PROCEDURE(N);
+    DECLARE N ADDRESS;
+    DECLARE S(5) BYTE INITIAL(' ',' ',' ',' ','0');
+    DECLARE (I,J) BYTE;
+    I = 4;
+    DO WHILE N > 0;
+        J = N MOD 10 + '0';
+        N = N / 10;
+        S(I) = J;
+        I = I - 1;
+    END;
+    DO I = 0 TO 4;
+        IF S(I) <> ' ' THEN
+            CALL BDOS1(BDOS$PRINT,S(I));
+    END;
+END PRINTN;
+
+/* GET NEXT CHARACTER FROM FILE */
+GETCHAR: PROCEDURE BYTE;
+    DECLARE I BYTE INITIAL(128);
+    DECLARE C BYTE;
+    IF I > 127 THEN DO;
+        I = 0;
+        IF (BDOS2(BDOS$FREAD,FCB$A) <> 0) THEN
+            RETURN CNTLZ;
+    END;
+    C = BUFF(I);
+    I = I + 1;
+    RETURN C;
+END GETCHAR;
+
+/* GET STRING FROM FILE */
+GETS: PROCEDURE BYTE;
+    DECLARE EOF$FLAG BYTE INITIAL(FALSE);
+    DECLARE I BYTE;
+    DECLARE C BYTE;
+    IF EOF$FLAG = TRUE THEN RETURN 0;
+    I = 0;
+    DO WHILE TRUE;
+    NEXT:
+        C = GETCHAR;
+        IF C = CNTLZ THEN DO;
+            EOF$FLAG = TRUE;
+            LBUFF(I) = 0;
+            RETURN I;
+        END;
+        IF C = CR THEN GO TO NEXT;
+        IF C = LF THEN DO;
+            LBUFF(I) = 0;
+            I = I + 1;
+            RETURN I;
+        END;
+        LBUFF(I) = C;
+        I = I + 1;
+    END;
+END GETS;
+
+/* MATCH ARGUMENT STRING IN LINE */
+MATCH: PROCEDURE BYTE;
+    DECLARE (I,J) BYTE;
+    I = 0;
+    DO WHILE LBUFF(I) <> 0;
+        IF LBUFF(I) <> CMD(0) THEN DO;
+            I = I + 1;
+            GO TO NEXT;
+        END;
+        J = 0;
+        DO WHILE CMD(J) <> 0;
+            IF CMD(J) <> LBUFF(I) THEN DO;
+                I = I + 1;
+                GO TO NEXT;
+            END;
+            J = J + 1;
+            I = I + 1;
+        END;
+        RETURN 1;
+    NEXT:
+    END;
+    RETURN 0;
+END MATCH;
+
+/**********************************/
+/*          MAIN PROGRAM          */
+/**********************************/
+
+DO;
+    /* TRY TO OPEN FILE */
+    IF (BDOS2(BDOS$FOPEN,FCB$A) = 255) THEN DO;
+        CALL PRINTS(.('FILE NOT FOUND$'));
+        GO TO DONE;
+    END;
+
+    /* GET STRING TO SEARCH FROM COMMAND LINE BUFFER */
+    J = BUFF(0); /* LENGTH OF COMMAND LINE ARGUMENT */
+    I = 2; /* ONE FOR LENGTH BYTE, ONE FOR BLANK FOLLOWING PROGRAM NAME */
+    DO WHILE (BUFF(I) <> ' ') AND (I <= J); /* FIND NEXT BLANK */
+        I = I + 1;
+    END;
+    I = I + 1;
+    IF I > J THEN DO; /* NO STRING ARGUMENT */
+        CALL PRINTS(.('USAGE: FIND FILE STRING$'));
+        GO TO DONE;
+    END;
+    K = 0;
+    DO WHILE I <= J;
+        C = BUFF(I);
+        IF C = CAR THEN DO;
+            I = I + 1;
+            CMD(K) = BUFF(I);
+        END;
+        ELSE DO;
+	    IF (C >= 'A') AND (C <= 'Z') THEN
+                CMD(K) = C + 20H;
+            ELSE
+                CMD(K) = C;
+        END;
+        I = I + 1;
+        K = K + 1;
+    END;
+    K = K + 1;
+    CMD(K) = 0;
+
+    /* READ LINES FROM FILE AND SCAN */
+    DO WHILE GETS <> 0;
+        LNO = LNO + 1;
+        IF MATCH <> 0 THEN DO;
+            CALL PRINTN(LNO);
+            CALL PRINTS(.(': $'));
+            CALL PRINT0(.LBUFF);
+            CALL CRLF;
+        END;
+    END;
+DONE:
+END;
+
+CALL BDOS1(BDOS$EXIT,0); /* DONE, TERMINATE PROGRAM */
+
+EOF

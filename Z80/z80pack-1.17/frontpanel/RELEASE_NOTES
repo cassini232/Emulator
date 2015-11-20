@@ -1,0 +1,23 @@
+
+New bind light functions to provide inverted logic
+
+int     fp_bindLight8invert(char *name, uint8 *bits, int bitnum, uint8 mask);
+int     fp_bindLight16invert(char *name, uint16 *bits, int bitnum, uint16 mask);
+int     fp_bindLight32invert(char *name, uint32 *bits, int bitnum, uint32 mask);
+
+name   - name of light(s) to be affected.
+bits   - pointer to the data that the light(s) will be bound to.
+bitnum - starting bit number for multiple light binding.
+mask   - bitmask specifying which bits will result in inverted logic.
+	 A logic one will cause the respective light to be lighted if the bit that the light
+	 is bound to is a logic zero.
+
+Examples:
+
+  Invert the operation of a light named LED_STATUS_07.
+
+    fp_bindLight8invert("LED_STATUS_07",&status, 1, 1 );
+
+  Invert the operation of the lights that are bound to the 3 most significant bits.
+
+    fp_bindLight8invert("LED_STATUS_{00-07}",&status, 1, 0xE0);

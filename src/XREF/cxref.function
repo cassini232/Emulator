@@ -1,0 +1,896 @@
+support.c add_pixmap_directory 2 g_list_prepend g_strdup
+support.c create_pixbuf 2 dgettext %find_pixmap_file fprintf g_error_free g_free g_log gdk_pixbuf_new_from_file
+support.c create_pixmap 2 dgettext %find_pixmap_file g_free g_log gtk_image_new gtk_image_new_from_file
+support.c find_pixmap_file 1 g_file_test g_free g_strdup_printf
+support.c glade_set_atk_action_description 2 atk_action_get_n_actions atk_action_get_name atk_action_set_description strcmp
+support.c lookup_widget 2 g_log g_object_get_data g_type_check_instance_cast g_type_check_instance_is_a gtk_menu_get_attach_widget gtk_menu_get_type
+simint.c int_off 2 sigaction
+simint.c int_on 2 sigaction %&quit_int %&term_int %&user_int
+simint.c quit_int 1
+simint.c term_int 1 exit exit_io %int_off puts tcsetattr
+simint.c user_int 1
+simfun.c exatoi 2 __ctype_b_loc toupper
+simfun.c getkey 2 getchar tcgetattr tcsetattr
+simctl.c checksum 1
+simctl.c cpu_err_msg 1 Add_to_Log Show_All sprintf
+simctl.c do_break 2 __ctype_b_loc atoi exatoi memset printf puts
+simctl.c do_clock 1 alarm cpu printf puts signal %&timeout
+simctl.c do_count 1 __ctype_b_loc exatoi printf puts
+simctl.c do_dump 1 __ctype_b_loc exatoi printf putchar puts
+simctl.c do_fill 1 __ctype_b_loc exatoi puts
+simctl.c do_getfile 2 __ctype_b_loc close exatoi %load_hex %load_mos lseek open printf puts read strlen
+simctl.c do_go 2 cpu %cpu_err_msg %handel_break %print_head %print_reg
+simctl.c do_help 1 puts
+simctl.c do_hist 1 __ctype_b_loc exatoi getkey memset printf putchar puts toupper
+simctl.c do_list 1 __ctype_b_loc disass exatoi printf
+simctl.c do_modify 1 __ctype_b_loc exatoi fgets printf
+simctl.c do_move 1 __ctype_b_loc exatoi puts
+simctl.c do_port 1 __ctype_b_loc exatoi fgets io_in io_out printf
+simctl.c do_reg 1 __ctype_b_loc exatoi fgets %print_head %print_reg printf strncmp
+simctl.c do_show 1 printf
+simctl.c do_step 2 cpu %cpu_err_msg disass %handel_break %print_head %print_reg
+simctl.c do_trace 2 __ctype_b_loc atoi cpu %cpu_err_msg %handel_break %print_head %print_reg
+simctl.c do_unix 1 int_off int_on system
+simctl.c handel_break 1 Add_to_Log cpu sprintf
+simctl.c load_hex 1 __ctype_b_loc %checksum fclose fgets fopen printf
+simctl.c load_mos 1 Add_to_Log close puts read sprintf
+simctl.c mon 2 %do_break %do_clock %do_count %do_dump %do_fill %do_getfile %do_go %do_help %do_hist %do_list %do_modify %do_move %do_port %do_reg %do_show %do_step %do_trace %do_unix fflush fgets printf putchar puts tcgetattr
+simctl.c print_head 1
+simctl.c print_reg 1 printf
+simctl.c timeout 1
+sim7.c op_fdcb_handel 2 %&op_rb0iyd %&op_rb1iyd %&op_rb2iyd %&op_rb3iyd %&op_rb4iyd %&op_rb5iyd %&op_rb6iyd %&op_rb7iyd %&op_rlciyd %&op_rliyd %&op_rrciyd %&op_rriyd %&op_sb0iyd %&op_sb1iyd %&op_sb2iyd %&op_sb3iyd %&op_sb4iyd %&op_sb5iyd %&op_sb6iyd %&op_sb7iyd %&op_slaiyd %&op_sraiyd %&op_srliyd %&op_tb0iyd %&op_tb1iyd %&op_tb2iyd %&op_tb3iyd %&op_tb4iyd %&op_tb5iyd %&op_tb6iyd %&op_tb7iyd %&trap_fdcb
+sim7.c op_rb0iyd 1
+sim7.c op_rb1iyd 1
+sim7.c op_rb2iyd 1
+sim7.c op_rb3iyd 1
+sim7.c op_rb4iyd 1
+sim7.c op_rb5iyd 1
+sim7.c op_rb6iyd 1
+sim7.c op_rb7iyd 1
+sim7.c op_rlciyd 1
+sim7.c op_rliyd 1
+sim7.c op_rrciyd 1
+sim7.c op_rriyd 1
+sim7.c op_sb0iyd 1
+sim7.c op_sb1iyd 1
+sim7.c op_sb2iyd 1
+sim7.c op_sb3iyd 1
+sim7.c op_sb4iyd 1
+sim7.c op_sb5iyd 1
+sim7.c op_sb6iyd 1
+sim7.c op_sb7iyd 1
+sim7.c op_slaiyd 1
+sim7.c op_sraiyd 1
+sim7.c op_srliyd 1
+sim7.c op_tb0iyd 1
+sim7.c op_tb1iyd 1
+sim7.c op_tb2iyd 1
+sim7.c op_tb3iyd 1
+sim7.c op_tb4iyd 1
+sim7.c op_tb5iyd 1
+sim7.c op_tb6iyd 1
+sim7.c op_tb7iyd 1
+sim7.c trap_fdcb 1
+sim6.c op_ddcb_handel 2 %&op_rb0ixd %&op_rb1ixd %&op_rb2ixd %&op_rb3ixd %&op_rb4ixd %&op_rb5ixd %&op_rb6ixd %&op_rb7ixd %&op_rlcixd %&op_rlixd %&op_rrcixd %&op_rrixd %&op_sb0ixd %&op_sb1ixd %&op_sb2ixd %&op_sb3ixd %&op_sb4ixd %&op_sb5ixd %&op_sb6ixd %&op_sb7ixd %&op_slaixd %&op_sraixd %&op_srlixd %&op_tb0ixd %&op_tb1ixd %&op_tb2ixd %&op_tb3ixd %&op_tb4ixd %&op_tb5ixd %&op_tb6ixd %&op_tb7ixd %&trap_ddcb
+sim6.c op_rb0ixd 1
+sim6.c op_rb1ixd 1
+sim6.c op_rb2ixd 1
+sim6.c op_rb3ixd 1
+sim6.c op_rb4ixd 1
+sim6.c op_rb5ixd 1
+sim6.c op_rb6ixd 1
+sim6.c op_rb7ixd 1
+sim6.c op_rlcixd 1
+sim6.c op_rlixd 1
+sim6.c op_rrcixd 1
+sim6.c op_rrixd 1
+sim6.c op_sb0ixd 1
+sim6.c op_sb1ixd 1
+sim6.c op_sb2ixd 1
+sim6.c op_sb3ixd 1
+sim6.c op_sb4ixd 1
+sim6.c op_sb5ixd 1
+sim6.c op_sb6ixd 1
+sim6.c op_sb7ixd 1
+sim6.c op_slaixd 1
+sim6.c op_sraixd 1
+sim6.c op_srlixd 1
+sim6.c op_tb0ixd 1
+sim6.c op_tb1ixd 1
+sim6.c op_tb2ixd 1
+sim6.c op_tb3ixd 1
+sim6.c op_tb4ixd 1
+sim6.c op_tb5ixd 1
+sim6.c op_tb6ixd 1
+sim6.c op_tb7ixd 1
+sim6.c trap_ddcb 1
+sim5.c op_acayd 1
+sim5.c op_adayd 1
+sim5.c op_addyb 1
+sim5.c op_addyd 1
+sim5.c op_addys 1
+sim5.c op_addyy 1
+sim5.c op_andyd 1
+sim5.c op_cpyd 1
+sim5.c op_deciy 1
+sim5.c op_decyd 1
+sim5.c op_exspy 1
+sim5.c op_fd_handel 2 %&op_acayd %&op_adayd %&op_addyb %&op_addyd %&op_addys %&op_addyy %&op_andyd %&op_cpyd %&op_deciy %&op_decyd %&op_exspy &op_fdcb_handel %&op_inciy %&op_incyd %&op_jpiy %&op_ldayd %&op_ldbyd %&op_ldcyd %&op_lddyd %&op_ldeyd %&op_ldhyd %&op_ldiny %&op_ldiyinn %&op_ldiynn %&op_ldlyd %&op_ldspy %&op_ldyda %&op_ldydb %&op_ldydc %&op_ldydd %&op_ldyde %&op_ldydh %&op_ldydl %&op_ldydn %&op_oryd %&op_popiy %&op_pusiy %&op_scayd %&op_suayd %&op_xoryd %&trap_fd
+sim5.c op_inciy 1
+sim5.c op_incyd 1
+sim5.c op_jpiy 1
+sim5.c op_ldayd 1
+sim5.c op_ldbyd 1
+sim5.c op_ldcyd 1
+sim5.c op_lddyd 1
+sim5.c op_ldeyd 1
+sim5.c op_ldhyd 1
+sim5.c op_ldiny 1
+sim5.c op_ldiyinn 1
+sim5.c op_ldiynn 1
+sim5.c op_ldlyd 1
+sim5.c op_ldspy 1
+sim5.c op_ldyda 1
+sim5.c op_ldydb 1
+sim5.c op_ldydc 1
+sim5.c op_ldydd 1
+sim5.c op_ldyde 1
+sim5.c op_ldydh 1
+sim5.c op_ldydl 1
+sim5.c op_ldydn 1
+sim5.c op_oryd 1
+sim5.c op_popiy 1
+sim5.c op_pusiy 1
+sim5.c op_scayd 1
+sim5.c op_suayd 1
+sim5.c op_xoryd 1
+sim5.c trap_fd 1
+sim4.c op_adchb 1
+sim4.c op_adchd 1
+sim4.c op_adchh 1
+sim4.c op_adchs 1
+sim4.c op_cpdop 1
+sim4.c op_cpdr 1
+sim4.c op_cpi 1
+sim4.c op_cpir 1
+sim4.c op_ed_handel 2 %&op_adchb %&op_adchd %&op_adchh %&op_adchs %&op_cpdop %&op_cpdr %&op_cpi %&op_cpir %&op_im0 %&op_im1 %&op_im2 %&op_inaic %&op_inbic %&op_incic %&op_ind %&op_indic %&op_indr %&op_ineic %&op_inhic %&op_ini %&op_inir %&op_inlic %&op_ldai %&op_ldar %&op_ldbcinn %&op_ldd %&op_lddeinn %&op_lddr %&op_ldi %&op_ldia %&op_ldinbc %&op_ldinde %&op_ldinsp %&op_ldir %&op_ldra %&op_ldspinn %&op_neg %&op_oprld %&op_oprrd %&op_otdr %&op_otir %&op_outca %&op_outcb %&op_outcc %&op_outcd %&op_outce %&op_outch %&op_outcl %&op_outd %&op_outi %&op_reti %&op_retn %&op_sbchb %&op_sbchd %&op_sbchh %&op_sbchs %&trap_ed
+sim4.c op_im0 1
+sim4.c op_im1 1
+sim4.c op_im2 1
+sim4.c op_inaic 1 io_in
+sim4.c op_inbic 1 io_in
+sim4.c op_incic 1 io_in
+sim4.c op_ind 1 io_in
+sim4.c op_indic 1 io_in
+sim4.c op_indr 1 io_in
+sim4.c op_ineic 1 io_in
+sim4.c op_inhic 1 io_in
+sim4.c op_ini 1 io_in
+sim4.c op_inir 1 io_in
+sim4.c op_inlic 1 io_in
+sim4.c op_ldai 1
+sim4.c op_ldar 1
+sim4.c op_ldbcinn 1
+sim4.c op_ldd 1
+sim4.c op_lddeinn 1
+sim4.c op_lddr 1
+sim4.c op_ldi 1
+sim4.c op_ldia 1
+sim4.c op_ldinbc 1
+sim4.c op_ldinde 1
+sim4.c op_ldinsp 1
+sim4.c op_ldir 1
+sim4.c op_ldra 1
+sim4.c op_ldspinn 1
+sim4.c op_neg 1
+sim4.c op_oprld 1
+sim4.c op_oprrd 1
+sim4.c op_otdr 1 io_out
+sim4.c op_otir 1 io_out
+sim4.c op_outca 1 io_out
+sim4.c op_outcb 1 io_out
+sim4.c op_outcc 1 io_out
+sim4.c op_outcd 1 io_out
+sim4.c op_outce 1 io_out
+sim4.c op_outch 1 io_out
+sim4.c op_outcl 1 io_out
+sim4.c op_outd 1 io_out
+sim4.c op_outi 1 io_out
+sim4.c op_reti 1
+sim4.c op_retn 1
+sim4.c op_sbchb 1
+sim4.c op_sbchd 1
+sim4.c op_sbchh 1
+sim4.c op_sbchs 1
+sim4.c trap_ed 1
+sim3.c op_acaxd 1
+sim3.c op_adaxd 1
+sim3.c op_addxb 1
+sim3.c op_addxd 1
+sim3.c op_addxs 1
+sim3.c op_addxx 1
+sim3.c op_andxd 1
+sim3.c op_cpxd 1
+sim3.c op_dd_handel 2 %&op_acaxd %&op_adaxd %&op_addxb %&op_addxd %&op_addxs %&op_addxx %&op_andxd %&op_cpxd &op_ddcb_handel %&op_decix %&op_decxd %&op_exspx %&op_incix %&op_incxd %&op_jpix %&op_ldaxd %&op_ldbxd %&op_ldcxd %&op_lddxd %&op_ldexd %&op_ldhxd %&op_ldinx %&op_ldixinn %&op_ldixnn %&op_ldlxd %&op_ldspx %&op_ldxda %&op_ldxdb %&op_ldxdc %&op_ldxdd %&op_ldxde %&op_ldxdh %&op_ldxdl %&op_ldxdn %&op_orxd %&op_popix %&op_pusix %&op_scaxd %&op_suaxd %&op_xorxd %&trap_dd
+sim3.c op_decix 1
+sim3.c op_decxd 1
+sim3.c op_exspx 1
+sim3.c op_incix 1
+sim3.c op_incxd 1
+sim3.c op_jpix 1
+sim3.c op_ldaxd 1
+sim3.c op_ldbxd 1
+sim3.c op_ldcxd 1
+sim3.c op_lddxd 1
+sim3.c op_ldexd 1
+sim3.c op_ldhxd 1
+sim3.c op_ldinx 1
+sim3.c op_ldixinn 1
+sim3.c op_ldixnn 1
+sim3.c op_ldlxd 1
+sim3.c op_ldspx 1
+sim3.c op_ldxda 1
+sim3.c op_ldxdb 1
+sim3.c op_ldxdc 1
+sim3.c op_ldxdd 1
+sim3.c op_ldxde 1
+sim3.c op_ldxdh 1
+sim3.c op_ldxdl 1
+sim3.c op_ldxdn 1
+sim3.c op_orxd 1
+sim3.c op_popix 1
+sim3.c op_pusix 1
+sim3.c op_scaxd 1
+sim3.c op_suaxd 1
+sim3.c op_xorxd 1
+sim3.c trap_dd 1
+sim2.c op_cb_handel 2 %&op_rb0a %&op_rb0b %&op_rb0c %&op_rb0d %&op_rb0e %&op_rb0h %&op_rb0hl %&op_rb0l %&op_rb1a %&op_rb1b %&op_rb1c %&op_rb1d %&op_rb1e %&op_rb1h %&op_rb1hl %&op_rb1l %&op_rb2a %&op_rb2b %&op_rb2c %&op_rb2d %&op_rb2e %&op_rb2h %&op_rb2hl %&op_rb2l %&op_rb3a %&op_rb3b %&op_rb3c %&op_rb3d %&op_rb3e %&op_rb3h %&op_rb3hl %&op_rb3l %&op_rb4a %&op_rb4b %&op_rb4c %&op_rb4d %&op_rb4e %&op_rb4h %&op_rb4hl %&op_rb4l %&op_rb5a %&op_rb5b %&op_rb5c %&op_rb5d %&op_rb5e %&op_rb5h %&op_rb5hl %&op_rb5l %&op_rb6a %&op_rb6b %&op_rb6c %&op_rb6d %&op_rb6e %&op_rb6h %&op_rb6hl %&op_rb6l %&op_rb7a %&op_rb7b %&op_rb7c %&op_rb7d %&op_rb7e %&op_rb7h %&op_rb7hl %&op_rb7l %&op_rlb %&op_rlc %&op_rlcb %&op_rlcc %&op_rlcd %&op_rlce %&op_rlch %&op_rlchl %&op_rlcl %&op_rlcra %&op_rld %&op_rle %&op_rlh %&op_rlhl %&op_rll %&op_rlra %&op_rrb %&op_rrc %&op_rrcb %&op_rrcc %&op_rrcd %&op_rrce %&op_rrch %&op_rrchl %&op_rrcl %&op_rrcra %&op_rrd %&op_rre %&op_rrh %&op_rrhl %&op_rrl %&op_rrra %&op_sb0a %&op_sb0b %&op_sb0c %&op_sb0d %&op_sb0e %&op_sb0h %&op_sb0hl %&op_sb0l %&op_sb1a %&op_sb1b %&op_sb1c %&op_sb1d %&op_sb1e %&op_sb1h %&op_sb1hl %&op_sb1l %&op_sb2a %&op_sb2b %&op_sb2c %&op_sb2d %&op_sb2e %&op_sb2h %&op_sb2hl %&op_sb2l %&op_sb3a %&op_sb3b %&op_sb3c %&op_sb3d %&op_sb3e %&op_sb3h %&op_sb3hl %&op_sb3l %&op_sb4a %&op_sb4b %&op_sb4c %&op_sb4d %&op_sb4e %&op_sb4h %&op_sb4hl %&op_sb4l %&op_sb5a %&op_sb5b %&op_sb5c %&op_sb5d %&op_sb5e %&op_sb5h %&op_sb5hl %&op_sb5l %&op_sb6a %&op_sb6b %&op_sb6c %&op_sb6d %&op_sb6e %&op_sb6h %&op_sb6hl %&op_sb6l %&op_sb7a %&op_sb7b %&op_sb7c %&op_sb7d %&op_sb7e %&op_sb7h %&op_sb7hl %&op_sb7l %&op_slaa %&op_slab %&op_slac %&op_slad %&op_slae %&op_slah %&op_slahl %&op_slal %&op_sraa %&op_srab %&op_srac %&op_srad %&op_srae %&op_srah %&op_srahl %&op_sral %&op_srla %&op_srlb %&op_srlc %&op_srld %&op_srle %&op_srlh %&op_srlhl %&op_srll %&op_tb0a %&op_tb0b %&op_tb0c %&op_tb0d %&op_tb0e %&op_tb0h %&op_tb0hl %&op_tb0l %&op_tb1a %&op_tb1b %&op_tb1c %&op_tb1d %&op_tb1e %&op_tb1h %&op_tb1hl %&op_tb1l %&op_tb2a %&op_tb2b %&op_tb2c %&op_tb2d %&op_tb2e %&op_tb2h %&op_tb2hl %&op_tb2l %&op_tb3a %&op_tb3b %&op_tb3c %&op_tb3d %&op_tb3e %&op_tb3h %&op_tb3hl %&op_tb3l %&op_tb4a %&op_tb4b %&op_tb4c %&op_tb4d %&op_tb4e %&op_tb4h %&op_tb4hl %&op_tb4l %&op_tb5a %&op_tb5b %&op_tb5c %&op_tb5d %&op_tb5e %&op_tb5h %&op_tb5hl %&op_tb5l %&op_tb6a %&op_tb6b %&op_tb6c %&op_tb6d %&op_tb6e %&op_tb6h %&op_tb6hl %&op_tb6l %&op_tb7a %&op_tb7b %&op_tb7c %&op_tb7d %&op_tb7e %&op_tb7h %&op_tb7hl %&op_tb7l %&trap_cb
+sim2.c op_rb0a 1
+sim2.c op_rb0b 1
+sim2.c op_rb0c 1
+sim2.c op_rb0d 1
+sim2.c op_rb0e 1
+sim2.c op_rb0h 1
+sim2.c op_rb0hl 1
+sim2.c op_rb0l 1
+sim2.c op_rb1a 1
+sim2.c op_rb1b 1
+sim2.c op_rb1c 1
+sim2.c op_rb1d 1
+sim2.c op_rb1e 1
+sim2.c op_rb1h 1
+sim2.c op_rb1hl 1
+sim2.c op_rb1l 1
+sim2.c op_rb2a 1
+sim2.c op_rb2b 1
+sim2.c op_rb2c 1
+sim2.c op_rb2d 1
+sim2.c op_rb2e 1
+sim2.c op_rb2h 1
+sim2.c op_rb2hl 1
+sim2.c op_rb2l 1
+sim2.c op_rb3a 1
+sim2.c op_rb3b 1
+sim2.c op_rb3c 1
+sim2.c op_rb3d 1
+sim2.c op_rb3e 1
+sim2.c op_rb3h 1
+sim2.c op_rb3hl 1
+sim2.c op_rb3l 1
+sim2.c op_rb4a 1
+sim2.c op_rb4b 1
+sim2.c op_rb4c 1
+sim2.c op_rb4d 1
+sim2.c op_rb4e 1
+sim2.c op_rb4h 1
+sim2.c op_rb4hl 1
+sim2.c op_rb4l 1
+sim2.c op_rb5a 1
+sim2.c op_rb5b 1
+sim2.c op_rb5c 1
+sim2.c op_rb5d 1
+sim2.c op_rb5e 1
+sim2.c op_rb5h 1
+sim2.c op_rb5hl 1
+sim2.c op_rb5l 1
+sim2.c op_rb6a 1
+sim2.c op_rb6b 1
+sim2.c op_rb6c 1
+sim2.c op_rb6d 1
+sim2.c op_rb6e 1
+sim2.c op_rb6h 1
+sim2.c op_rb6hl 1
+sim2.c op_rb6l 1
+sim2.c op_rb7a 1
+sim2.c op_rb7b 1
+sim2.c op_rb7c 1
+sim2.c op_rb7d 1
+sim2.c op_rb7e 1
+sim2.c op_rb7h 1
+sim2.c op_rb7hl 1
+sim2.c op_rb7l 1
+sim2.c op_rlb 1
+sim2.c op_rlc 1
+sim2.c op_rlcb 1
+sim2.c op_rlcc 1
+sim2.c op_rlcd 1
+sim2.c op_rlce 1
+sim2.c op_rlch 1
+sim2.c op_rlchl 1
+sim2.c op_rlcl 1
+sim2.c op_rlcra 1
+sim2.c op_rld 1
+sim2.c op_rle 1
+sim2.c op_rlh 1
+sim2.c op_rlhl 1
+sim2.c op_rll 1
+sim2.c op_rlra 1
+sim2.c op_rrb 1
+sim2.c op_rrc 1
+sim2.c op_rrcb 1
+sim2.c op_rrcc 1
+sim2.c op_rrcd 1
+sim2.c op_rrce 1
+sim2.c op_rrch 1
+sim2.c op_rrchl 1
+sim2.c op_rrcl 1
+sim2.c op_rrcra 1
+sim2.c op_rrd 1
+sim2.c op_rre 1
+sim2.c op_rrh 1
+sim2.c op_rrhl 1
+sim2.c op_rrl 1
+sim2.c op_rrra 1
+sim2.c op_sb0a 1
+sim2.c op_sb0b 1
+sim2.c op_sb0c 1
+sim2.c op_sb0d 1
+sim2.c op_sb0e 1
+sim2.c op_sb0h 1
+sim2.c op_sb0hl 1
+sim2.c op_sb0l 1
+sim2.c op_sb1a 1
+sim2.c op_sb1b 1
+sim2.c op_sb1c 1
+sim2.c op_sb1d 1
+sim2.c op_sb1e 1
+sim2.c op_sb1h 1
+sim2.c op_sb1hl 1
+sim2.c op_sb1l 1
+sim2.c op_sb2a 1
+sim2.c op_sb2b 1
+sim2.c op_sb2c 1
+sim2.c op_sb2d 1
+sim2.c op_sb2e 1
+sim2.c op_sb2h 1
+sim2.c op_sb2hl 1
+sim2.c op_sb2l 1
+sim2.c op_sb3a 1
+sim2.c op_sb3b 1
+sim2.c op_sb3c 1
+sim2.c op_sb3d 1
+sim2.c op_sb3e 1
+sim2.c op_sb3h 1
+sim2.c op_sb3hl 1
+sim2.c op_sb3l 1
+sim2.c op_sb4a 1
+sim2.c op_sb4b 1
+sim2.c op_sb4c 1
+sim2.c op_sb4d 1
+sim2.c op_sb4e 1
+sim2.c op_sb4h 1
+sim2.c op_sb4hl 1
+sim2.c op_sb4l 1
+sim2.c op_sb5a 1
+sim2.c op_sb5b 1
+sim2.c op_sb5c 1
+sim2.c op_sb5d 1
+sim2.c op_sb5e 1
+sim2.c op_sb5h 1
+sim2.c op_sb5hl 1
+sim2.c op_sb5l 1
+sim2.c op_sb6a 1
+sim2.c op_sb6b 1
+sim2.c op_sb6c 1
+sim2.c op_sb6d 1
+sim2.c op_sb6e 1
+sim2.c op_sb6h 1
+sim2.c op_sb6hl 1
+sim2.c op_sb6l 1
+sim2.c op_sb7a 1
+sim2.c op_sb7b 1
+sim2.c op_sb7c 1
+sim2.c op_sb7d 1
+sim2.c op_sb7e 1
+sim2.c op_sb7h 1
+sim2.c op_sb7hl 1
+sim2.c op_sb7l 1
+sim2.c op_slaa 1
+sim2.c op_slab 1
+sim2.c op_slac 1
+sim2.c op_slad 1
+sim2.c op_slae 1
+sim2.c op_slah 1
+sim2.c op_slahl 1
+sim2.c op_slal 1
+sim2.c op_sraa 1
+sim2.c op_srab 1
+sim2.c op_srac 1
+sim2.c op_srad 1
+sim2.c op_srae 1
+sim2.c op_srah 1
+sim2.c op_srahl 1
+sim2.c op_sral 1
+sim2.c op_srla 1
+sim2.c op_srlb 1
+sim2.c op_srlc 1
+sim2.c op_srld 1
+sim2.c op_srle 1
+sim2.c op_srlh 1
+sim2.c op_srlhl 1
+sim2.c op_srll 1
+sim2.c op_tb0a 1
+sim2.c op_tb0b 1
+sim2.c op_tb0c 1
+sim2.c op_tb0d 1
+sim2.c op_tb0e 1
+sim2.c op_tb0h 1
+sim2.c op_tb0hl 1
+sim2.c op_tb0l 1
+sim2.c op_tb1a 1
+sim2.c op_tb1b 1
+sim2.c op_tb1c 1
+sim2.c op_tb1d 1
+sim2.c op_tb1e 1
+sim2.c op_tb1h 1
+sim2.c op_tb1hl 1
+sim2.c op_tb1l 1
+sim2.c op_tb2a 1
+sim2.c op_tb2b 1
+sim2.c op_tb2c 1
+sim2.c op_tb2d 1
+sim2.c op_tb2e 1
+sim2.c op_tb2h 1
+sim2.c op_tb2hl 1
+sim2.c op_tb2l 1
+sim2.c op_tb3a 1
+sim2.c op_tb3b 1
+sim2.c op_tb3c 1
+sim2.c op_tb3d 1
+sim2.c op_tb3e 1
+sim2.c op_tb3h 1
+sim2.c op_tb3hl 1
+sim2.c op_tb3l 1
+sim2.c op_tb4a 1
+sim2.c op_tb4b 1
+sim2.c op_tb4c 1
+sim2.c op_tb4d 1
+sim2.c op_tb4e 1
+sim2.c op_tb4h 1
+sim2.c op_tb4hl 1
+sim2.c op_tb4l 1
+sim2.c op_tb5a 1
+sim2.c op_tb5b 1
+sim2.c op_tb5c 1
+sim2.c op_tb5d 1
+sim2.c op_tb5e 1
+sim2.c op_tb5h 1
+sim2.c op_tb5hl 1
+sim2.c op_tb5l 1
+sim2.c op_tb6a 1
+sim2.c op_tb6b 1
+sim2.c op_tb6c 1
+sim2.c op_tb6d 1
+sim2.c op_tb6e 1
+sim2.c op_tb6h 1
+sim2.c op_tb6hl 1
+sim2.c op_tb6l 1
+sim2.c op_tb7a 1
+sim2.c op_tb7b 1
+sim2.c op_tb7c 1
+sim2.c op_tb7d 1
+sim2.c op_tb7e 1
+sim2.c op_tb7h 1
+sim2.c op_tb7hl 1
+sim2.c op_tb7l 1
+sim2.c trap_cb 1
+sim1.c cpu 2 check_gui_break nanosleep %&op_adca %&op_adcb %&op_adcc %&op_adcd %&op_adce %&op_adch %&op_adchl %&op_adcl %&op_adcn %&op_adda %&op_addb %&op_addc %&op_addd %&op_adde %&op_addh %&op_addhl %&op_addl %&op_addn %&op_adhlbc %&op_adhlde %&op_adhlhl %&op_adhlsp %&op_anda %&op_andb %&op_andc %&op_andd %&op_ande %&op_andh %&op_andhl %&op_andl %&op_andn %&op_calc %&op_call %&op_calm %&op_calnc %&op_calnz %&op_calp %&op_calpe %&op_calpo %&op_calz &op_cb_handel %&op_ccf %&op_cpa %&op_cpb %&op_cpc %&op_cpd %&op_cpe %&op_cph %&op_cphl %&op_cpl %&op_cplr %&op_cpn %&op_daa &op_dd_handel %&op_deca %&op_decb %&op_decbc %&op_decc %&op_decd %&op_decde %&op_dece %&op_dech %&op_dechl %&op_decihl %&op_decl %&op_decsp %&op_di %&op_djnz &op_ed_handel %&op_ei %&op_exafaf %&op_exdehl %&op_exsphl %&op_exx &op_fd_handel %&op_halt %&op_in %&op_inca %&op_incb %&op_incbc %&op_incc %&op_incd %&op_incde %&op_ince %&op_inch %&op_inchl %&op_incihl %&op_incl %&op_incsp %&op_jp %&op_jpc %&op_jphl %&op_jpm %&op_jpnc %&op_jpnz %&op_jpp %&op_jppe %&op_jppo %&op_jpz %&op_jr %&op_jrc %&op_jrnc %&op_jrnz %&op_jrz %&op_ldaa %&op_ldab %&op_ldabc %&op_ldac %&op_ldad %&op_ldade %&op_ldae %&op_ldah %&op_ldahl %&op_ldal %&op_ldan %&op_ldann %&op_ldba %&op_ldbb %&op_ldbc %&op_ldbca %&op_ldbcnn %&op_ldbd %&op_ldbe %&op_ldbh %&op_ldbhl %&op_ldbl %&op_ldbn %&op_ldca %&op_ldcb %&op_ldcc %&op_ldcd %&op_ldce %&op_ldch %&op_ldchl %&op_ldcl %&op_ldcn %&op_ldda %&op_lddb %&op_lddc %&op_lddd %&op_ldde %&op_lddea %&op_lddenn %&op_lddh %&op_lddhl %&op_lddl %&op_lddn %&op_ldea %&op_ldeb %&op_ldec %&op_lded %&op_ldee %&op_ldeh %&op_ldehl %&op_ldel %&op_lden %&op_ldha %&op_ldhb %&op_ldhc %&op_ldhd %&op_ldhe %&op_ldhh %&op_ldhhl %&op_ldhl %&op_ldhl1 %&op_ldhla %&op_ldhlb %&op_ldhlc %&op_ldhld %&op_ldhle %&op_ldhlh %&op_ldhlin %&op_ldhll %&op_ldhlnn %&op_ldhn %&op_ldinhl %&op_ldla %&op_ldlb %&op_ldlc %&op_ldld %&op_ldle %&op_ldlh %&op_ldlhl %&op_ldll %&op_ldln %&op_ldnna %&op_ldsphl %&op_ldspnn %&op_nop %&op_ora %&op_orb %&op_orc %&op_ord %&op_ore %&op_orh %&op_orhl %&op_orl %&op_orn %&op_out %&op_popaf %&op_popbc %&op_popde %&op_pophl %&op_pushaf %&op_pushbc %&op_pushde %&op_pushhl %&op_ret %&op_retc %&op_retm %&op_retnc %&op_retnz %&op_retp %&op_retpe %&op_retpo %&op_retz %&op_rla %&op_rlca %&op_rra %&op_rrca %&op_rst00 %&op_rst08 %&op_rst10 %&op_rst18 %&op_rst20 %&op_rst28 %&op_rst30 %&op_rst38 %&op_sbca %&op_sbcb %&op_sbcc %&op_sbcd %&op_sbce %&op_sbch %&op_sbchl %&op_sbcl %&op_sbcn %&op_scf %&op_suba %&op_subb %&op_subc %&op_subd %&op_sube %&op_subh %&op_subhl %&op_subl %&op_subn %&op_xora %&op_xorb %&op_xorc %&op_xord %&op_xore %&op_xorh %&op_xorhl %&op_xorl %&op_xorn
+sim1.c op_adca 1
+sim1.c op_adcb 1
+sim1.c op_adcc 1
+sim1.c op_adcd 1
+sim1.c op_adce 1
+sim1.c op_adch 1
+sim1.c op_adchl 1
+sim1.c op_adcl 1
+sim1.c op_adcn 1
+sim1.c op_adda 1
+sim1.c op_addb 1
+sim1.c op_addc 1
+sim1.c op_addd 1
+sim1.c op_adde 1
+sim1.c op_addh 1
+sim1.c op_addhl 1
+sim1.c op_addl 1
+sim1.c op_addn 1
+sim1.c op_adhlbc 1
+sim1.c op_adhlde 1
+sim1.c op_adhlhl 1
+sim1.c op_adhlsp 1
+sim1.c op_anda 1
+sim1.c op_andb 1
+sim1.c op_andc 1
+sim1.c op_andd 1
+sim1.c op_ande 1
+sim1.c op_andh 1
+sim1.c op_andhl 1
+sim1.c op_andl 1
+sim1.c op_andn 1
+sim1.c op_calc 1
+sim1.c op_call 1
+sim1.c op_calm 1
+sim1.c op_calnc 1
+sim1.c op_calnz 1
+sim1.c op_calp 1
+sim1.c op_calpe 1
+sim1.c op_calpo 1
+sim1.c op_calz 1
+sim1.c op_ccf 1
+sim1.c op_cpa 1
+sim1.c op_cpb 1
+sim1.c op_cpc 1
+sim1.c op_cpd 1
+sim1.c op_cpe 1
+sim1.c op_cph 1
+sim1.c op_cphl 1
+sim1.c op_cpl 1
+sim1.c op_cplr 1
+sim1.c op_cpn 1
+sim1.c op_daa 1
+sim1.c op_deca 1
+sim1.c op_decb 1
+sim1.c op_decbc 1
+sim1.c op_decc 1
+sim1.c op_decd 1
+sim1.c op_decde 1
+sim1.c op_dece 1
+sim1.c op_dech 1
+sim1.c op_dechl 1
+sim1.c op_decihl 1
+sim1.c op_decl 1
+sim1.c op_decsp 1
+sim1.c op_di 1
+sim1.c op_djnz 1
+sim1.c op_ei 1
+sim1.c op_exafaf 1
+sim1.c op_exdehl 1
+sim1.c op_exsphl 1
+sim1.c op_exx 1
+sim1.c op_halt 1 fprintf nanosleep
+sim1.c op_in 1 io_in
+sim1.c op_inca 1
+sim1.c op_incb 1
+sim1.c op_incbc 1
+sim1.c op_incc 1
+sim1.c op_incd 1
+sim1.c op_incde 1
+sim1.c op_ince 1
+sim1.c op_inch 1
+sim1.c op_inchl 1
+sim1.c op_incihl 1
+sim1.c op_incl 1
+sim1.c op_incsp 1
+sim1.c op_jp 1
+sim1.c op_jpc 1
+sim1.c op_jphl 1
+sim1.c op_jpm 1
+sim1.c op_jpnc 1
+sim1.c op_jpnz 1
+sim1.c op_jpp 1
+sim1.c op_jppe 1
+sim1.c op_jppo 1
+sim1.c op_jpz 1
+sim1.c op_jr 1
+sim1.c op_jrc 1
+sim1.c op_jrnc 1
+sim1.c op_jrnz 1
+sim1.c op_jrz 1
+sim1.c op_ldaa 1
+sim1.c op_ldab 1
+sim1.c op_ldabc 1
+sim1.c op_ldac 1
+sim1.c op_ldad 1
+sim1.c op_ldade 1
+sim1.c op_ldae 1
+sim1.c op_ldah 1
+sim1.c op_ldahl 1
+sim1.c op_ldal 1
+sim1.c op_ldan 1
+sim1.c op_ldann 1
+sim1.c op_ldba 1
+sim1.c op_ldbb 1
+sim1.c op_ldbc 1
+sim1.c op_ldbca 1
+sim1.c op_ldbcnn 1
+sim1.c op_ldbd 1
+sim1.c op_ldbe 1
+sim1.c op_ldbh 1
+sim1.c op_ldbhl 1
+sim1.c op_ldbl 1
+sim1.c op_ldbn 1
+sim1.c op_ldca 1
+sim1.c op_ldcb 1
+sim1.c op_ldcc 1
+sim1.c op_ldcd 1
+sim1.c op_ldce 1
+sim1.c op_ldch 1
+sim1.c op_ldchl 1
+sim1.c op_ldcl 1
+sim1.c op_ldcn 1
+sim1.c op_ldda 1
+sim1.c op_lddb 1
+sim1.c op_lddc 1
+sim1.c op_lddd 1
+sim1.c op_ldde 1
+sim1.c op_lddea 1
+sim1.c op_lddenn 1
+sim1.c op_lddh 1
+sim1.c op_lddhl 1
+sim1.c op_lddl 1
+sim1.c op_lddn 1
+sim1.c op_ldea 1
+sim1.c op_ldeb 1
+sim1.c op_ldec 1
+sim1.c op_lded 1
+sim1.c op_ldee 1
+sim1.c op_ldeh 1
+sim1.c op_ldehl 1
+sim1.c op_ldel 1
+sim1.c op_lden 1
+sim1.c op_ldha 1
+sim1.c op_ldhb 1
+sim1.c op_ldhc 1
+sim1.c op_ldhd 1
+sim1.c op_ldhe 1
+sim1.c op_ldhh 1
+sim1.c op_ldhhl 1
+sim1.c op_ldhl 1
+sim1.c op_ldhl1 1
+sim1.c op_ldhla 1
+sim1.c op_ldhlb 1
+sim1.c op_ldhlc 1
+sim1.c op_ldhld 1
+sim1.c op_ldhle 1
+sim1.c op_ldhlh 1
+sim1.c op_ldhlin 1
+sim1.c op_ldhll 1
+sim1.c op_ldhlnn 1
+sim1.c op_ldhn 1
+sim1.c op_ldinhl 1
+sim1.c op_ldla 1
+sim1.c op_ldlb 1
+sim1.c op_ldlc 1
+sim1.c op_ldld 1
+sim1.c op_ldle 1
+sim1.c op_ldlh 1
+sim1.c op_ldlhl 1
+sim1.c op_ldll 1
+sim1.c op_ldln 1
+sim1.c op_ldnna 1
+sim1.c op_ldsphl 1
+sim1.c op_ldspnn 1
+sim1.c op_nop 1
+sim1.c op_notimpl 1
+sim1.c op_ora 1
+sim1.c op_orb 1
+sim1.c op_orc 1
+sim1.c op_ord 1
+sim1.c op_ore 1
+sim1.c op_orh 1
+sim1.c op_orhl 1
+sim1.c op_orl 1
+sim1.c op_orn 1
+sim1.c op_out 1 io_out
+sim1.c op_popaf 1
+sim1.c op_popbc 1
+sim1.c op_popde 1
+sim1.c op_pophl 1
+sim1.c op_pushaf 1
+sim1.c op_pushbc 1
+sim1.c op_pushde 1
+sim1.c op_pushhl 1
+sim1.c op_ret 1
+sim1.c op_retc 1
+sim1.c op_retm 1
+sim1.c op_retnc 1
+sim1.c op_retnz 1
+sim1.c op_retp 1
+sim1.c op_retpe 1
+sim1.c op_retpo 1
+sim1.c op_retz 1
+sim1.c op_rla 1
+sim1.c op_rlca 1
+sim1.c op_rra 1
+sim1.c op_rrca 1
+sim1.c op_rst00 1
+sim1.c op_rst08 1
+sim1.c op_rst10 1
+sim1.c op_rst18 1
+sim1.c op_rst20 1
+sim1.c op_rst28 1
+sim1.c op_rst30 1
+sim1.c op_rst38 1
+sim1.c op_sbca 1
+sim1.c op_sbcb 1
+sim1.c op_sbcc 1
+sim1.c op_sbcd 1
+sim1.c op_sbce 1
+sim1.c op_sbch 1
+sim1.c op_sbchl 1
+sim1.c op_sbcl 1
+sim1.c op_sbcn 1
+sim1.c op_scf 1
+sim1.c op_suba 1
+sim1.c op_subb 1
+sim1.c op_subc 1
+sim1.c op_subd 1
+sim1.c op_sube 1
+sim1.c op_subh 1
+sim1.c op_subhl 1
+sim1.c op_subl 1
+sim1.c op_subn 1
+sim1.c op_xora 1
+sim1.c op_xorb 1
+sim1.c op_xorc 1
+sim1.c op_xord 1
+sim1.c op_xore 1
+sim1.c op_xorh 1
+sim1.c op_xorhl 1
+sim1.c op_xorl 1
+sim1.c op_xorn 1
+sim0.c checksum 1
+sim0.c load_core 2 close open puts read
+sim0.c load_file 2 __ctype_b_loc close exatoi %load_hex %load_mos lseek open printf puts read strlen
+sim0.c load_hex 1 __ctype_b_loc %checksum fclose fgets fopen printf
+sim0.c load_mos 1 close printf puts read
+sim0.c main 2 atoi exatoi exit exit_io fflush init_io int_off int_on %load_core memset mon printf putchar puts %save_core strlen
+sim0.c save_core 1 close open puts write
+registers.c Dump_From_Register 2 Show_Memory
+registers.c Show_Registers 2 g_type_check_instance_cast gtk_entry_get_type gtk_entry_set_text sprintf
+registers.c Update_Registers 2 Show_Code %Show_Registers exatoi g_type_check_instance_cast gtk_entry_get_text gtk_entry_get_type printf
+registers.c Zero_Registers 2 %Dump_From_Register Show_Flags %Show_Registers
+registers.c init_Registers 2 lookup_widget
+ports.c Create_IOPort_Struct 2 exit fprintf malloc printf
+ports.c Dump_IOPort 2 fprintf g_type_check_instance_cast gtk_text_buffer_get_end_iter gtk_text_buffer_set_text gtk_text_view_get_type gtk_text_view_scroll_to_iter sprintf strcat
+ports.c IOPort_IN 2 %Create_IOPort_Struct g_type_check_instance_cast gtk_entry_get_type gtk_entry_set_text printf sprintf
+ports.c IOPort_OUT 2 %Create_IOPort_Struct
+ports.c Show_IOport 2 g_type_check_instance_cast gtk_check_menu_item_get_active gtk_check_menu_item_get_type gtk_widget_hide gtk_widget_show
+ports.c init_IOport 2 create_IOWIN g_type_check_instance_cast gtk_text_view_get_buffer gtk_text_view_get_type gtk_widget_modify_font lookup_widget pango_font_description_from_string
+memory.c Mem_Change_Addr 2 Dump_From_Register %Scroll_Memory Show_Registers %mem_addr_to_row printf show_error
+memory.c Mem_Clicked 2 %Scroll_Memory %Show_Addr_Content %darken_memory exatoi gtk_text_buffer_get_insert gtk_text_buffer_get_iter_at_line gtk_text_buffer_get_iter_at_mark gtk_text_buffer_get_text gtk_text_iter_forward_chars gtk_text_iter_get_line gtk_text_iter_get_line_offset %highlight_memory strcpy
+memory.c Scroll_Memory 2 g_type_check_instance_cast gtk_text_buffer_create_mark gtk_text_buffer_get_start_iter gtk_text_iter_set_line gtk_text_view_get_type gtk_text_view_scroll_to_mark
+memory.c Show_Addr_Content 2 g_type_check_instance_cast gtk_entry_get_type gtk_entry_set_text sprintf
+memory.c Show_Memory 2 %Show_Addr_Content free gtk_text_buffer_set_text %highlight_memory malloc %mem_addr_to_row sprintf strcat
+memory.c Synch_Mem_Reg 2 Show_Registers show_error
+memory.c Update_Memory 2 Dump_From_Register exatoi g_type_check_instance_cast gtk_entry_get_text gtk_entry_get_type show_error
+memory.c darken_memory 2 gtk_text_buffer_get_end_iter gtk_text_buffer_get_start_iter gtk_text_buffer_remove_tag
+memory.c dump_memory_vars 2
+memory.c highlight_memory 2 gtk_text_buffer_apply_tag gtk_text_buffer_get_iter_at_line gtk_text_iter_forward_chars %mem_addr_to_row
+memory.c init_Memory 2 g_type_check_instance_cast gtk_text_buffer_create_tag gtk_text_view_get_buffer gtk_text_view_get_type gtk_widget_modify_font lookup_widget pango_font_description_from_string
+memory.c mem_addr_to_row 2 gtk_text_buffer_get_start_iter gtk_text_iter_forward_search gtk_text_iter_get_line sprintf
+main.c Show_All 2 Dump_From_Register Show_Code Show_Flags Show_Registers
+main.c main 2 Dump_From_Register Show_Code Show_Flags Show_Registers add_pixmap_directory bind_textdomain_codeset bindtextdomain create_Main do_getfile gtk_init gtk_main gtk_set_locale gtk_widget_show init_Code init_Flags init_IOport init_Log init_Memory init_Registers textdomain
+log.c Add_to_Log 2 g_type_check_instance_cast gtk_text_buffer_create_mark gtk_text_buffer_get_end_iter gtk_text_buffer_insert gtk_text_view_get_type gtk_text_view_scroll_to_mark
+log.c init_Log 2 create_Log g_type_check_instance_cast gtk_text_view_get_buffer gtk_text_view_get_type lookup_widget
+log.c show_log 2 gtk_widget_hide gtk_widget_show
+iosim.c exit_io 2
+iosim.c io_in 2 IOPort_IN
+iosim.c io_out 2 IOPort_OUT
+interface.c create_About_Dialog 2 dgettext g_object_set_data g_type_check_instance_cast gtk_about_dialog_get_type gtk_about_dialog_new gtk_about_dialog_set_comments gtk_about_dialog_set_copyright gtk_about_dialog_set_license gtk_about_dialog_set_name gtk_about_dialog_set_translator_credits gtk_about_dialog_set_version gtk_container_get_type gtk_container_set_border_width
+interface.c create_File_Chooser 2 dgettext g_object_set_data g_object_set_data_full g_signal_connect_data g_type_check_instance_cast gtk_button_box_get_type gtk_button_box_set_layout gtk_button_new_from_stock gtk_container_get_type gtk_container_set_border_width gtk_dialog_add_action_widget gtk_dialog_get_type gtk_file_chooser_dialog_new gtk_object_get_type gtk_widget_grab_default gtk_widget_ref gtk_widget_show gtk_window_get_type gtk_window_set_type_hint &gtk_widget_unref &on_File_Cancel_Button_clicked &on_File_Open_Button_clicked
+interface.c create_Fill_Memory 2 dgettext g_object_set_data g_object_set_data_full g_type_check_instance_cast gtk_alignment_new gtk_box_get_type gtk_box_pack_start gtk_button_new gtk_container_add gtk_container_get_type gtk_entry_get_type gtk_entry_new gtk_entry_set_invisible_char gtk_entry_set_max_length gtk_entry_set_width_chars gtk_hbox_new gtk_image_new_from_stock gtk_label_new gtk_label_new_with_mnemonic gtk_vbox_new gtk_widget_ref gtk_widget_show gtk_window_get_type gtk_window_new gtk_window_set_resizable gtk_window_set_title &gtk_widget_unref
+interface.c create_IOWIN 2 dgettext g_object_set_data g_object_set_data_full g_signal_connect_data g_type_check_instance_cast gtk_adjustment_get_type gtk_adjustment_new gtk_box_get_type gtk_box_pack_start gtk_button_get_type gtk_button_new_with_mnemonic gtk_button_set_focus_on_click gtk_container_add gtk_container_get_type gtk_editable_get_type gtk_editable_set_editable gtk_entry_get_type gtk_entry_new gtk_entry_set_has_frame gtk_entry_set_max_length gtk_entry_set_text gtk_entry_set_width_chars gtk_hbox_new gtk_hseparator_new gtk_label_get_type gtk_label_new gtk_label_set_use_markup gtk_object_get_type gtk_radio_button_get_group gtk_radio_button_get_type gtk_radio_button_new_with_mnemonic gtk_radio_button_set_group gtk_scrolled_window_get_type gtk_scrolled_window_new gtk_scrolled_window_set_policy gtk_scrolled_window_set_shadow_type gtk_spin_button_get_type gtk_spin_button_new gtk_spin_button_set_numeric gtk_text_view_get_type gtk_text_view_new gtk_text_view_set_editable gtk_text_view_set_wrap_mode gtk_vbox_new gtk_vseparator_new gtk_widget_grab_default gtk_widget_ref gtk_widget_set_size_request gtk_widget_show gtk_window_get_type gtk_window_new gtk_window_set_destroy_with_parent gtk_window_set_title &gtk_widget_unref &on_IOASCII_toggled &on_IOHex_toggled &on_IOWIN_destroy &on_In_Port_Submit_clicked &on_PortSpin_value_changed
+interface.c create_Log 2 dgettext g_object_set_data g_object_set_data_full g_signal_connect_data g_type_check_instance_cast gtk_container_add gtk_container_get_type gtk_scrolled_window_get_type gtk_scrolled_window_new gtk_scrolled_window_set_policy gtk_text_buffer_set_text gtk_text_view_get_buffer gtk_text_view_get_type gtk_text_view_new gtk_text_view_set_accepts_tab gtk_text_view_set_cursor_visible gtk_text_view_set_editable gtk_widget_ref gtk_widget_set_size_request gtk_widget_show gtk_window_get_type gtk_window_new gtk_window_set_title &gtk_widget_unref &on_Log_delete_event
+interface.c create_Main 2 dgettext g_object_set_data g_object_set_data_full g_signal_connect_data g_type_check_instance_cast gtk_accel_group_new gtk_adjustment_get_type gtk_adjustment_new gtk_alignment_get_type gtk_alignment_new gtk_alignment_set_padding gtk_box_get_type gtk_box_pack_end gtk_box_pack_start gtk_button_get_type gtk_button_new gtk_button_new_with_mnemonic gtk_button_set_focus_on_click gtk_check_button_new_with_mnemonic gtk_check_menu_item_new_with_mnemonic gtk_container_add gtk_container_get_type gtk_container_set_border_width gtk_editable_get_type gtk_editable_set_editable gtk_entry_get_type gtk_entry_new gtk_entry_set_activates_default gtk_entry_set_has_frame gtk_entry_set_invisible_char gtk_entry_set_max_length gtk_entry_set_text gtk_entry_set_width_chars gtk_frame_get_type gtk_frame_new gtk_frame_set_label_widget gtk_frame_set_shadow_type gtk_hbox_new gtk_image_menu_item_new_from_stock gtk_image_new_from_stock gtk_label_get_type gtk_label_new gtk_label_new_with_mnemonic gtk_label_set_justify gtk_label_set_single_line_mode gtk_label_set_use_markup gtk_label_set_width_chars gtk_menu_bar_new gtk_menu_item_get_type gtk_menu_item_new_with_mnemonic gtk_menu_item_set_submenu gtk_menu_new gtk_misc_get_type gtk_misc_set_alignment gtk_object_get_type gtk_radio_button_get_group gtk_radio_button_get_type gtk_radio_button_new_with_mnemonic gtk_radio_button_set_group gtk_scrolled_window_get_type gtk_scrolled_window_new gtk_scrolled_window_set_policy gtk_scrolled_window_set_shadow_type gtk_separator_menu_item_new gtk_separator_tool_item_new gtk_spin_button_get_type gtk_spin_button_new gtk_spin_button_set_numeric gtk_table_attach gtk_table_get_type gtk_table_new gtk_table_set_col_spacings gtk_table_set_row_spacings gtk_text_buffer_set_text gtk_text_view_get_buffer gtk_text_view_get_type gtk_text_view_new gtk_text_view_set_accepts_tab gtk_text_view_set_cursor_visible gtk_text_view_set_editable gtk_text_view_set_overwrite gtk_toggle_button_get_type gtk_toggle_button_set_active gtk_toggle_tool_button_new_from_stock gtk_tool_button_new_from_stock gtk_toolbar_get_icon_size gtk_toolbar_get_type gtk_toolbar_new gtk_toolbar_set_style gtk_vbox_new gtk_widget_grab_focus gtk_widget_ref gtk_widget_set_events gtk_widget_set_extension_events gtk_widget_set_sensitive gtk_widget_set_size_request gtk_widget_show gtk_window_add_accel_group gtk_window_get_type gtk_window_new gtk_window_set_title &gtk_main_quit &gtk_widget_unref &on_BC_Button_toggled &on_Break_Button_clicked &on_Break_tool_clicked &on_Clear_Break_Button_clicked &on_Code_Text_button_release_event &on_Code_scroll_to_PC_clicked &on_DE_Button_toggled &on_HL_Button_toggled &on_IX_Button_toggled &on_IY_Button_toggled &on_Mem_Button_toggled &on_Mem_Page_Back_clicked &on_Mem_Page_Fwd_clicked &on_Mem_Row_Back_clicked &on_Mem_Row_Fwd_clicked &on_Mem_Step_Back_clicked &on_Mem_Step_Fwd_clicked &on_Mem_Update_Button_clicked &on_Mem_text_button_release_event &on_OpcodeButton_toggled &on_PC_Button_toggled &on_PC_Set_Button_clicked &on_Reset_Button_clicked &on_RunButton_toggled &on_SP_Button_toggled &on_SlowRunButton_toggled &on_SlowRunSpin_value_changed &on_Step_tool_clicked &on_Synch_Memory_Button_clicked &on_Trace_tool_clicked &on_Update_REG_button_clicked &on_Zero_Button_clicked &on_about1_activate &on_buttonC_clicked &on_buttonH_clicked &on_buttonN_clicked &on_buttonP_clicked &on_buttonS_clicked &on_buttonX_clicked &on_buttonY_clicked &on_buttonZ_clicked &on_go1_activate &on_ioport1_activate &on_log1_activate &on_memory_fill1_activate &on_open1_activate &on_ops1_activate &on_quit1_activate &on_save1_activate &on_save_as1_activate &on_step1_activate &on_trace1_activate &on_view1_activate
+general.c Get_File 2 create_File_Chooser g_type_check_instance_cast gtk_dialog_get_type gtk_dialog_run gtk_widget_destroy gtk_widget_show
+general.c Get_File_Cancel 2 gtk_widget_destroy
+general.c Get_File_Open 2 Add_to_Log Do_Code_Reload Dump_From_Register Show_Code Show_Registers do_getfile g_type_check_instance_cast gtk_file_chooser_get_filename gtk_file_chooser_get_type gtk_widget_destroy sprintf
+general.c check_gui_break 2 Show_All fprintf gtk_events_pending gtk_main_iteration usleep
+general.c show_about 2 create_About_Dialog g_type_check_instance_cast gtk_dialog_get_type gtk_dialog_run gtk_widget_destroy gtk_widget_show
+general.c show_error 2 g_type_check_instance_cast gtk_dialog_get_type gtk_dialog_run gtk_message_dialog_new gtk_widget_destroy gtk_window_get_type gtk_window_set_title
+flags.c Show_Flags 2 g_type_check_instance_cast gtk_entry_get_type gtk_entry_set_text
+flags.c Toggle_Flag 2 %Show_Flags
+flags.c init_Flags 2 g_type_check_instance_cast gtk_entry_get_type gtk_entry_set_text lookup_widget
+disas.c $ 0 %&cbop %&ddfd %&edop %&inout %&iout %&nnout %&nout %&opout %&rout
+disas.c cbop 1 sprintf strcat
+disas.c ddfd 1 sprintf strcat
+disas.c disass 2 %get_opcodes
+disas.c edop 1 sprintf strcat
+disas.c get_opcodes 2 sprintf
+disas.c inout 1 sprintf strcat
+disas.c iout 1 sprintf strcat
+disas.c nnout 1 sprintf
+disas.c nout 1 sprintf
+disas.c opout 1 sprintf
+disas.c rout 1 sprintf
+code.c Code_Break 2 Add_to_Log %Show_Code printf show_error sprintf
+code.c Code_Clicked 2 %darken_code %do_code_highlights gtk_text_buffer_get_insert gtk_text_buffer_get_iter_at_mark gtk_text_iter_get_line %line2addr printf
+code.c Code_UnBreak 2 Add_to_Log %Show_Code show_error sprintf
+code.c Do_Code_Reload 2 %build_code_cache %darken_code
+code.c Show_Code 2 disass %do_code_highlights g_type_check_instance_cast gtk_text_buffer_create_mark gtk_text_buffer_get_end_iter gtk_text_buffer_set_text gtk_text_iter_get_line gtk_text_iter_set_line gtk_text_view_get_line_at_y gtk_text_view_get_type gtk_text_view_get_visible_rect gtk_text_view_scroll_to_mark sprintf strcat
+code.c build_code_cache 2 disass
+code.c darken_code 2 gtk_text_buffer_get_end_iter gtk_text_buffer_get_iter_at_line gtk_text_buffer_get_start_iter gtk_text_buffer_remove_tag gtk_text_iter_forward_to_line_end
+code.c do_code_highlights 2 %darken_code %highlight_code printf
+code.c dump_code_vars 2 do_break g_type_check_instance_cast gtk_text_iter_get_line gtk_text_view_get_line_at_y gtk_text_view_get_type gtk_text_view_get_visible_rect printf
+code.c highlight_code 2 gtk_text_buffer_apply_tag gtk_text_buffer_get_iter_at_line gtk_text_iter_forward_to_line_end
+code.c init_Code 2 %build_code_cache g_type_check_instance_cast gtk_spin_button_get_type gtk_spin_button_set_value gtk_text_buffer_create_tag gtk_text_view_get_buffer gtk_text_view_get_type gtk_toggle_tool_button_get_type gtk_toggle_tool_button_set_active gtk_widget_modify_font lookup_widget pango_font_description_from_string
+code.c line2addr 2
+code.c set_PC_to_selection 2 Dump_From_Register %Show_Code Show_Registers %do_code_highlights show_error
+callbacks.c on_BC_Button_toggled 2 Dump_From_Register
+callbacks.c on_Break_Button_clicked 2 Code_Break printf
+callbacks.c on_Break_tool_clicked 2 dump_code_vars dump_memory_vars
+callbacks.c on_Clear_Break_Button_clicked 2 Code_UnBreak
+callbacks.c on_Code_Text_button_release_event 2 Code_Clicked
+callbacks.c on_Code_scroll_to_PC_clicked 2
+callbacks.c on_DE_Button_toggled 2 Dump_From_Register
+callbacks.c on_Error_OK_clicked 2
+callbacks.c on_File_Cancel_Button_clicked 2 Get_File_Cancel
+callbacks.c on_File_Open_Button_clicked 2 Get_File_Open
+callbacks.c on_HL_Button_toggled 2 Dump_From_Register
+callbacks.c on_IOASCII_toggled 2 Create_IOPort_Struct Dump_IOPort
+callbacks.c on_IOHex_toggled 2 Create_IOPort_Struct Dump_IOPort
+callbacks.c on_IOWIN_destroy 2 fprintf
+callbacks.c on_IX_Button_toggled 2 Dump_From_Register
+callbacks.c on_IY_Button_toggled 2 Dump_From_Register
+callbacks.c on_In_Port_Submit_clicked 2
+callbacks.c on_Log_delete_event 2 printf show_log
+callbacks.c on_Mem_Button_toggled 2 Dump_From_Register
+callbacks.c on_Mem_Page_Back_clicked 2 Mem_Change_Addr
+callbacks.c on_Mem_Page_Fwd_clicked 2 Mem_Change_Addr
+callbacks.c on_Mem_Row_Back_clicked 2 Mem_Change_Addr
+callbacks.c on_Mem_Row_Fwd_clicked 2 Mem_Change_Addr
+callbacks.c on_Mem_Step_Back_clicked 2 Mem_Change_Addr
+callbacks.c on_Mem_Step_Fwd_clicked 2 Mem_Change_Addr
+callbacks.c on_Mem_Update_Button_clicked 2 Show_Code Update_Memory
+callbacks.c on_Mem_text_button_release_event 2 Mem_Clicked
+callbacks.c on_OpcodeButton_toggled 2 Show_Code gtk_toggle_tool_button_get_active
+callbacks.c on_PC_Button_toggled 2 Dump_From_Register
+callbacks.c on_PC_Set_Button_clicked 2 set_PC_to_selection
+callbacks.c on_PortSpin_value_changed 2 Dump_IOPort gtk_spin_button_get_value printf
+callbacks.c on_Reset_Button_clicked 2 Show_Code Show_Registers
+callbacks.c on_RunButton_toggled 2 Show_All do_go gtk_toggle_tool_button_get_active gtk_toggle_tool_button_set_active
+callbacks.c on_SP_Button_toggled 2 Dump_From_Register
+callbacks.c on_SlowRunButton_toggled 2
+callbacks.c on_SlowRunSpin_value_changed 2 gtk_spin_button_get_value_as_int
+callbacks.c on_Step_tool_clicked 2 Dump_From_Register Dump_IOPort Show_Code Show_Flags Show_Registers do_step
+callbacks.c on_Synch_Memory_Button_clicked 2 Synch_Mem_Reg
+callbacks.c on_Trace_tool_clicked 2 Show_All do_trace
+callbacks.c on_Update_REG_button_clicked 2 Dump_From_Register Update_Registers
+callbacks.c on_Zero_Button_clicked 2 Zero_Registers
+callbacks.c on_about1_activate 2 g_type_check_instance_cast gtk_widget_get_type show_about
+callbacks.c on_buttonC_clicked 2 Toggle_Flag
+callbacks.c on_buttonH_clicked 2 Toggle_Flag
+callbacks.c on_buttonN_clicked 2 Toggle_Flag
+callbacks.c on_buttonP_clicked 2 Toggle_Flag
+callbacks.c on_buttonS_clicked 2 Toggle_Flag
+callbacks.c on_buttonX_clicked 2 Toggle_Flag
+callbacks.c on_buttonY_clicked 2 Toggle_Flag
+callbacks.c on_buttonZ_clicked 2 Toggle_Flag
+callbacks.c on_copy1_activate 2
+callbacks.c on_cut1_activate 2
+callbacks.c on_delete1_activate 2
+callbacks.c on_go1_activate 2
+callbacks.c on_ioport1_activate 2 Dump_IOPort Show_IOport g_type_check_instance_cast gtk_widget_get_type
+callbacks.c on_log1_activate 2 g_type_check_instance_cast gtk_check_menu_item_get_active gtk_check_menu_item_get_type show_log
+callbacks.c on_memory_fill1_activate 2
+callbacks.c on_new1_activate 2
+callbacks.c on_open1_activate 2 Get_File
+callbacks.c on_ops1_activate 2
+callbacks.c on_paste1_activate 2
+callbacks.c on_quit1_activate 2 gtk_main_quit
+callbacks.c on_save1_activate 2
+callbacks.c on_save_as1_activate 2
+callbacks.c on_step1_activate 2
+callbacks.c on_test_tool_clicked 2
+callbacks.c on_trace1_activate 2
+callbacks.c on_view1_activate 2

@@ -1,0 +1,30 @@
+#!/bin/sh
+
+ORIGDIR="$HOME/work/Z80/z80pack-1.17/z80sim/"
+NOHEAD=FALSE
+
+while [ "`echo "$1" | cut -c1`" = '-' ]
+do
+  if [ $1 = "-q" ]
+  then
+    NOHEAD=TRUE
+  fi
+  FLAGS="$FLAGS $1"
+  shift
+done
+
+if [ -z "$1" ]
+then
+  sources="`ls -1 ./sim*.[ch]` disas.c iosim.c"
+else
+  sources=$1
+fi
+
+for i in $sources
+do
+  if [ $NOHEAD = FALSE ]
+  then
+    echo "++++++++++ diff $ORIGDIR/$i ./$i"
+  fi
+  diff $FLAGS $ORIGDIR/$i ./$i
+done
