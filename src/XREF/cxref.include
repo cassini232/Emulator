@@ -1,0 +1,30 @@
+support.h ../config.h gtk/gtk.h libintl.h
+support.c ../config.h sys/types.h sys/stat.h unistd.h string.h stdio.h gtk/gtk.h %support.h
+simint.c unistd.h stdlib.h stdio.h termios.h signal.h %sim.h %simglb.h
+sim.h
+simglb.c %sim.h
+simfun.c unistd.h stdio.h ctype.h termios.h %sim.h
+simctl.c unistd.h stdlib.h stdio.h string.h termios.h fcntl.h memory.h ctype.h signal.h %sim.h %simglb.h %guiglb.h
+sim7.c %sim.h %simglb.h
+sim6.c %sim.h %simglb.h
+sim5.c %sim.h %simglb.h
+sim4.c %sim.h %simglb.h
+sim3.c %sim.h %simglb.h
+sim2.c %sim.h %simglb.h
+sim1.c unistd.h stdio.h time.h %sim.h %simglb.h
+sim0.c unistd.h stdlib.h stdio.h string.h ctype.h fcntl.h memory.h %sim.h %simglb.h
+registers.c gtk/gtk.h stdio.h string.h stdlib.h %interface.h %support.h %sim.h %simglb.h %guiglb.h %prototypes.h
+ports.c gtk/gtk.h stdio.h string.h stdlib.h %interface.h %support.h %sim.h %simglb.h %guiglb.h
+memory.c gtk/gtk.h stdio.h string.h stdlib.h %interface.h %support.h %sim.h %simglb.h %guiglb.h %prototypes.h
+main.c %sim.h %simglb.h %guiglb.h ../config.h gtk/gtk.h %interface.h %support.h %prototypes.h
+log.c gtk/gtk.h stdio.h string.h stdlib.h %interface.h %support.h %sim.h %simglb.h
+iosim.c gtk/gtk.h stdio.h %sim.h %simglb.h %prototypes.h
+interface.c ../config.h sys/types.h sys/stat.h unistd.h string.h stdio.h gdk/gdkkeysyms.h gtk/gtk.h %callbacks.h %interface.h %support.h
+guiglb.h
+guiglb.c %guiglb.h
+general.c gtk/gtk.h stdio.h string.h stdlib.h unistd.h %interface.h %support.h %sim.h %simglb.h %guiglb.h %prototypes.h
+flags.c gtk/gtk.h stdio.h %interface.h %support.h %sim.h %simglb.h
+disas.c stdio.h string.h %sim.h
+code.c gtk/gtk.h stdio.h string.h stdlib.h %interface.h %support.h %sim.h %simglb.h %guiglb.h %prototypes.h
+callbacks.h gtk/gtk.h
+callbacks.c ../config.h gtk/gtk.h stdio.h %callbacks.h %interface.h %support.h %sim.h %simglb.h %guiglb.h %prototypes.h

@@ -1,0 +1,5 @@
+guiglb.o: guiglb.c /usr/include/stdc-predef.h guiglb.h
+
+/usr/include/stdc-predef.h:
+
+guiglb.h:

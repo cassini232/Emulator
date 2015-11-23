@@ -1,0 +1,10 @@
+32a33,36
+> #ifdef WANT_GUI
+> void check_gui_break(void);
+> #endif
+> 
+507a512,515
+> #ifdef WANT_GUI
+>                 check_gui_break();
+> #endif
+> 
